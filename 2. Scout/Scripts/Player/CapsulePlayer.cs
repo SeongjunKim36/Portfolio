@@ -1,0 +1,38 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CapsulePlayer : MonoBehaviour
+
+
+{
+    private Transform tr;
+    private Rigidbody rb;
+    
+    private float MoveSpeed = 300f;
+    private float dirX;
+    private float dirY;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        tr = GetComponent<Transform>();
+    }
+
+    private void Update()
+    {
+        CapsuleMove();
+    }
+
+    // Update is called once per frame
+    void CapsuleMove()
+    {
+        dirX = Input.GetAxis("Horizontal");
+        dirY = Input.GetAxis("Vertical");
+
+        rb.velocity = new Vector3(dirX, 0f, dirY) * Time.deltaTime * MoveSpeed;
+       //Debug.Log(rb.velocity);
+
+    }
+}
