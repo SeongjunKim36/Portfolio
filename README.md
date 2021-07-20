@@ -23,7 +23,7 @@
 - 개발 환경: Unity2020.1.8f / Android, IOS / SVN / GitHub 
 - 개발 기간: 8개월 (2020/06 ~ 2021/01)
 - 관련 링크
-  1. 프로젝트 플레이 영상 링크 : https://youtu.be/J3DEfpU3f-Y
+ 1. 프로젝트 플레이 영상 링크 : https://youtu.be/J3DEfpU3f-Y
 
 [프로젝트 설명]
 - 360 VR 영상과이미지를통한쇼핑플랫폼
@@ -44,7 +44,7 @@
 - 개발 환경: Unity2019.2.6f / VIVE pro / GitHub / Trello 
 - 개발 기간: 4주 (2019/10/23 ~ 2019/11/26)
 - 관련 링크
-  1. 프로젝트 플레이 영상 링크 : https://youtu.be/sD7sJPI82vE
+ 1. 프로젝트 플레이 영상 링크 : https://youtu.be/sD7sJPI82vE
 
 [프로젝트 설명]
 - 보스전과 플레이어 이동이 강조된 VR 슈팅게임
@@ -64,7 +64,8 @@
 - 개발 환경: Unity2019.1.14f / Oculus Quest
 - 개발 기간: 2주 (2019/09/09 ~ 2019/09/25)
 - 관련 링크
-  1. 프로젝트 플레이 영상 링크 : https://youtu.be/PfzjLjYv9kA
+ 1. 프로젝트 플레이 영상 링크 : https://youtu.be/PfzjLjYv9kA
+
 [프로젝트 설명]
 - 2D기반의 테트리스 알고리즘을 3D로 전환
 - 4x4x4(x,y,z축)크기의 3D 투명한 큐브(목표)를 무작위 모양의 블록으로 채우는 방식
