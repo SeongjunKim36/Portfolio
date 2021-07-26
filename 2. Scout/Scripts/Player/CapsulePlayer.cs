@@ -13,7 +13,6 @@ public class CapsulePlayer : MonoBehaviour
     private float dirX;
     private float dirY;
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -25,14 +24,13 @@ public class CapsulePlayer : MonoBehaviour
         CapsuleMove();
     }
 
-    // Update is called once per frame
+    // 실제 Rigidbody 적용부분 이동
     void CapsuleMove()
     {
         dirX = Input.GetAxis("Horizontal");
         dirY = Input.GetAxis("Vertical");
 
         rb.velocity = new Vector3(dirX, 0f, dirY) * Time.deltaTime * MoveSpeed;
-       //Debug.Log(rb.velocity);
 
     }
 }
