@@ -16,25 +16,14 @@ public class Movement : MonoBehaviour
     {
         floorLayer = 1<<LayerMask.NameToLayer("FLOOR");
         middleLayer = 1<<LayerMask.NameToLayer("MIDDLE");
-        Debug.Log(floorLayer);
-
-
+        
         StartCoroutine(TopBlockFall());
         StartCoroutine(RightBlockFall());
         StartCoroutine(LeftBlockFall());
         
         
     }
-
-   
-
     
-    void Update()
-    {
-        Debug.Log(floorLayer);
-
-        
-    }
     IEnumerator TopBlockFall()
     {
         if(gameObject.tag == "TOP")
@@ -72,17 +61,14 @@ public class Movement : MonoBehaviour
         if(other.gameObject.layer == 8 && gameObject.tag == "TOP")
         {
             touchFloor = true;
-            //Destroy(this.gameObject, 0.2f);
         }
         if(other.gameObject.layer == 9 && gameObject.tag == "LEFT")
         {
             touchFloor = true;
-            //Destroy(this.gameObject, 0.2f);
         }
         if(other.gameObject.layer == 9 && gameObject.tag == "RIGHT")
         {
             touchFloor = true;
-            //Destroy(this.gameObject, 0.2f);
         }
     }
     
