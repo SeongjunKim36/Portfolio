@@ -51,13 +51,6 @@ public class PadController : MonoBehaviour {
     private int tagNumber = 0;
     private string MatName;
     public Material isGrabedMat;
-
-    
-
-    // public static bool left;
-    // private bool right;
-    // private bool up;
-    // private bool down;
     public static bool[] TopTetrisMoved = new bool[4];
     public static bool[] TopTetrisRotated = new bool[4];
 
@@ -71,8 +64,6 @@ public class PadController : MonoBehaviour {
         currHorizontalRotation = OVRInput.GetLocalControllerRotation (OVRInput.Controller.RTouch);
         initializer = GameObject.FindGameObjectWithTag("INIT");
         CreateLine ();
-
-        //isGrabedMat = Resources.Load("Materials/GrabedMat",typeof(Material)) as Material;
     }
 
     void Update () {
@@ -83,16 +74,10 @@ public class PadController : MonoBehaviour {
             if (OVRInput.GetDown (OVRInput.Button.SecondaryHandTrigger) ||
                 OVRInput.GetDown (OVRInput.Button.SecondaryIndexTrigger)) {
                 Tetris = hit.collider.gameObject;
-                Debug.Log("!!!!!!!!!!!!!!!!!!!");
-                
 
                 foreach(Transform cube in Tetris.transform)
                 {
-                    //cube.GetComponent<MeshRenderer>().material = null;
                     cube.GetComponent<MeshRenderer>().material = isGrabedMat;
-                   
-
-                    
                 }
                 
             }
@@ -106,10 +91,6 @@ public class PadController : MonoBehaviour {
                     isVerticalRotateStart = false;
                     isFinishedRotate = true;
                     isMoveStart = false;
-                    Debug.Log("@@@@@@@@@@@@@@@@@@@@@");
-
-                    
-
             }
 
         }
@@ -132,14 +113,11 @@ public class PadController : MonoBehaviour {
             Vector3 deltaVec = vecPrev - vecCurr;
 
             
-
-            
             // 테트리스 회전
 
-            if (deltaVec.y > 10f && isHorizontalRotateStart ) // 상단 테트리스 오른쪽 회전
+            if (deltaVec.y > 10f && isHorizontalRotateStart ) // 상단 테트리스 오른쪽으로 회전
             {
-                isFinishedRotate = false;
-                //iTween.RotateAdd (Tetris, iTween.Hash ("y", 90, "time", 0.15f, "space", Space.World, "easetype", iTween.EaseType.easeOutBounce, "oncomplete", "FinishedRotate", "oncompletetarget", this.gameObject));
+                isFinishedRotate = false;                
                 Tetris.gameObject.transform.Rotate(new Vector3(0,90,0),Space.World);
                 FinishedRotate();
                 prevHorizontalRotation = currHorizontalRotation;
@@ -148,10 +126,9 @@ public class PadController : MonoBehaviour {
                 TopTetrisRotated[0] = true;
                 
 
-            } else if (deltaVec.y < -10f && isHorizontalRotateStart) // 상단 테트리스 좌측 회전
+            } else if (deltaVec.y < -10f && isHorizontalRotateStart) // 상단 테트리스 왼쪽으로 회전
             {
-                isFinishedRotate = false;
-                //iTween.RotateAdd (Tetris, iTween.Hash ("y", -90, "time", 0.15f, "space", Space.World, "easetype", iTween.EaseType.easeOutBounce, "oncomplete", "FinishedRotate", "oncompletetarget", this.gameObject));
+                isFinishedRotate = false;                
                 Tetris.gameObject.transform.Rotate(new Vector3(0,-90,0),Space.World);
                 FinishedRotate();
                 prevHorizontalRotation = currHorizontalRotation;
@@ -160,10 +137,9 @@ public class PadController : MonoBehaviour {
                 TopTetrisRotated[1] = true;
                 
             }
-            else if (deltaVec.x > 10f && isHorizontalRotateStart  ) // 상단 테트리스 좌측 회전
+            else if (deltaVec.x > 10f && isHorizontalRotateStart  ) // 상단 테트리스 앞쪽으로 회전
             {
-                isFinishedRotate = false;
-                //iTween.RotateAdd (Tetris, iTween.Hash ("x", 90, "time", 0.15f, "space", Space.World, "easetype", iTween.EaseType.easeOutBounce, "oncomplete", "FinishedRotate", "oncompletetarget", this.gameObject));
+                isFinishedRotate = false;                
                 Tetris.gameObject.transform.Rotate(new Vector3(90,0,0),Space.World);
                 FinishedRotate();
                 prevHorizontalRotation = currHorizontalRotation;
@@ -172,10 +148,9 @@ public class PadController : MonoBehaviour {
                 TopTetrisRotated[2] = true;
                 
             }
-            else if (deltaVec.x < -10f && isHorizontalRotateStart ) // 상단 테트리스 좌측 회전
+            else if (deltaVec.x < -10f && isHorizontalRotateStart ) // 상단 테트리스 뒷쪽으로 회전
             {
                 isFinishedRotate = false;
-                //iTween.RotateAdd (Tetris, iTween.Hash ("x", -90, "time", 0.15f, "space", Space.World, "easetype", iTween.EaseType.easeOutBounce, "oncomplete", "FinishedRotate", "oncompletetarget", this.gameObject));
                 Tetris.gameObject.transform.Rotate(new Vector3(-90,0,0),Space.World);
                 FinishedRotate();
                 prevHorizontalRotation = currHorizontalRotation;
@@ -187,44 +162,6 @@ public class PadController : MonoBehaviour {
             
 
         } 
-        
-        // else if (isMoveStart==false && isFinishedRotate == true && Tetris.layer == 10 && OVRInput.Get (OVRInput.Button.SecondaryIndexTrigger)) {
-            
-        //     if (!isVerticalRotateStart) {
-        //         prevVerticalRotation = OVRInput.GetLocalControllerRotation (OVRInput.Controller.RTouch);
-        //         isVerticalRotateStart = true;
-        //     }
-        //     isGrab = true;
-
-        //     currVerticalRotation = OVRInput.GetLocalControllerRotation (OVRInput.Controller.RTouch);
-
-        //     Vector3 vecPrev = prevVerticalRotation.eulerAngles;
-        //     Vector3 vecCurr = currVerticalRotation.eulerAngles;
-        //     Vector3 deltaVec = vecPrev - vecCurr;
-
-            
-
-        //     //테트리스 회전
-
-        //     if (deltaVec.x > 1f && isVerticalRotateStart) // 상단 테트리스 회전
-        //     {
-        //         isFinishedRotate = false;
-        //         iTween.RotateAdd (Tetris, iTween.Hash ("x", 90, "time", 0.15f, "space", Space.World, "easetype", iTween.EaseType.easeOutBounce, "oncomplete", "FinishedRotate", "oncompletetarget", this.gameObject));
-
-        //         prevVerticalRotation = currVerticalRotation;
-        //         vecPrev = vecCurr;
-        //         isVerticalRotateStart = false;
-                
-        //     } else if (deltaVec.x < -1f && isVerticalRotateStart) // 상단 테트리스 회전
-        //     {
-        //         isFinishedRotate = false;
-        //         iTween.RotateAdd (Tetris, iTween.Hash ("x", -90, "time", 0.15f, "space", Space.World, "easetype", iTween.EaseType.easeOutBounce, "oncomplete", "FinishedRotate", "oncompletetarget", this.gameObject));
-
-        //         prevVerticalRotation = currVerticalRotation;
-        //         vecPrev = vecCurr;
-        //         isVerticalRotateStart = false;
-        //     }
-        // } 
         
         else if (Tetris.layer == 10 && OVRInput.Get (OVRInput.Button.SecondaryIndexTrigger))
                  {
@@ -248,23 +185,21 @@ public class PadController : MonoBehaviour {
 
             // 테트리스 이동
 
+            // 테트리스를 좌측으로 이동
             if (deltaVec.y > 3f && isVerticalRotateStart) 
-            {
-                
-                //iTween.MoveAdd (Tetris, iTween.Hash ("amount", new Vector3 (-1, 0, 0), "space", Space.World, "speed", 10.0f, "easetype", iTween.EaseType.easeOutBounce));
+            {    
                 Tetris.transform.position += new Vector3(-1,0,0);
                 prevVerticalRotation = currVerticalRotation;
                 vecPrev = vecCurr;
                 isVerticalRotateStart = false;
                 isMoveStart = false;
                 isFinishedRotate = true;
-                TopTetrisMoved[0] = true;
-                
+                TopTetrisMoved[0] = true;              
 
-            } else if (deltaVec.y < -3f && isVerticalRotateStart) 
+            } 
+            // 테트리스를 우측으로 이동
+            else if (deltaVec.y < -3f && isVerticalRotateStart) 
             {
-                
-                //iTween.MoveAdd (Tetris, iTween.Hash ("amount", new Vector3 (1, 0, 0), "space", Space.World, "speed", 10.0f, "easetype", iTween.EaseType.easeOutBounce));
                 Tetris.transform.position += new Vector3(1,0,0);
                 prevVerticalRotation = currVerticalRotation;
                 vecPrev = vecCurr;
@@ -273,10 +208,9 @@ public class PadController : MonoBehaviour {
                 isFinishedRotate = true;
                 TopTetrisMoved[1] = true;
             }
+            // 테트리스를 후방으로 이동
             else if (deltaVec.x > 3f && isVerticalRotateStart) 
             {
-                
-                //Tween.MoveAdd (Tetris, iTween.Hash ("amount", new Vector3 (0, 0, -1), "space", Space.World, "speed", 10.0f, "easetype", iTween.EaseType.easeOutBounce));
                 Tetris.transform.position += new Vector3(0,0,-1);
                 prevVerticalRotation = currVerticalRotation;
                 vecPrev = vecCurr;
@@ -285,10 +219,9 @@ public class PadController : MonoBehaviour {
                 isFinishedRotate = true;
                 TopTetrisMoved[2] = true;
             }
+            // 테트리스를 전방으로 이동
             else if (deltaVec.x < -3f && isVerticalRotateStart) 
             {
-                
-                //iTween.MoveAdd (Tetris, iTween.Hash ("amount", new Vector3 (0, 0, 1), "space", Space.World, "speed", 10.0f, "easetype", iTween.EaseType.easeOutBounce));
                 Tetris.transform.position += new Vector3(0,0,1);
                 prevVerticalRotation = currVerticalRotation;
                 vecPrev = vecCurr;
@@ -298,20 +231,8 @@ public class PadController : MonoBehaviour {
                 TopTetrisMoved[3] = true;
             }
         }
-        // else
-        // {
-        //         //Tetris = null;
-        //         isHorizontalRotateStart = false;
-        //         isVerticalRotateStart = false;
-        //         isDragStart = false;
-        //         isMoveStart = false;
-        // }
         
-
-
-
-        
-        // 오른쪽 테트리스 컨트롤
+        // 우측 컨트롤러 테트리스 컨트롤
         else if (isFinishedRotate == true && Tetris.layer == 11 && OVRInput.Get (OVRInput.Button.SecondaryHandTrigger)) {
 
             if (!isHorizontalRotateStart) {
@@ -331,8 +252,7 @@ public class PadController : MonoBehaviour {
 
             if (deltaVec.y > 4f && isHorizontalRotateStart ) // 상단 테트리스 오른쪽 회전
             {
-                isFinishedRotate = false;
-                //iTween.RotateAdd (Tetris, iTween.Hash ("y", 90, "time", 0.15f, "space", Space.World, "easetype", iTween.EaseType.easeOutBounce, "oncomplete", "FinishedRotate", "oncompletetarget", this.gameObject));
+                isFinishedRotate = false;                
                 Tetris.gameObject.transform.Rotate(new Vector3(0,90,0),Space.World);
                 FinishedRotate();
                 prevHorizontalRotation = currHorizontalRotation;
@@ -341,10 +261,9 @@ public class PadController : MonoBehaviour {
                 isDragStart = false;                
                 prevPostion = currPosition;
 
-            } else if (deltaVec.y < -4f && isHorizontalRotateStart) // 상단 테트리스 좌측 회전
+            } else if (deltaVec.y < -4f && isHorizontalRotateStart) // 상단 테트리스 왼쪽 회전
             {
-                isFinishedRotate = false;
-                //iTween.RotateAdd (Tetris, iTween.Hash ("y", -90, "time", 0.15f, "space", Space.World, "easetype", iTween.EaseType.easeOutBounce, "oncomplete", "FinishedRotate", "oncompletetarget", this.gameObject));
+                isFinishedRotate = false;                
                 Tetris.gameObject.transform.Rotate(new Vector3(0,-90,0),Space.World);
                 FinishedRotate();
                 prevHorizontalRotation = currHorizontalRotation;
@@ -353,10 +272,9 @@ public class PadController : MonoBehaviour {
                 isDragStart = false;                
                 prevPostion = currPosition;
             }
-            else if (deltaVec.x > 4f && isHorizontalRotateStart  ) // 상단 테트리스 좌측 회전
+            else if (deltaVec.x > 4f && isHorizontalRotateStart  ) // 상단 테트리스 후방 회전
             {
-                isFinishedRotate = false;
-                //iTween.RotateAdd (Tetris, iTween.Hash ("z", -90, "time", 0.15f, "space", Space.World, "easetype", iTween.EaseType.easeOutBounce, "oncomplete", "FinishedRotate", "oncompletetarget", this.gameObject));
+                isFinishedRotate = false;                
                 Tetris.gameObject.transform.Rotate(new Vector3(0,0,-90),Space.World);
                 FinishedRotate();
                 prevHorizontalRotation = currHorizontalRotation;
@@ -365,10 +283,9 @@ public class PadController : MonoBehaviour {
                 isDragStart = false;                
                 prevPostion = currPosition;
             }
-            else if (deltaVec.x < -4f && isHorizontalRotateStart ) // 상단 테트리스 좌측 회전
+            else if (deltaVec.x < -4f && isHorizontalRotateStart ) // 상단 테트리스 전방 회전
             {
-                isFinishedRotate = false;
-                //iTween.RotateAdd (Tetris, iTween.Hash ("z", 90, "time", 0.15f, "space", Space.World, "easetype", iTween.EaseType.easeOutBounce, "oncomplete", "FinishedRotate", "oncompletetarget", this.gameObject));
+                isFinishedRotate = false;                
                 Tetris.gameObject.transform.Rotate(new Vector3(0,0,90),Space.World);
                 FinishedRotate();
                 prevHorizontalRotation = currHorizontalRotation;
@@ -377,47 +294,7 @@ public class PadController : MonoBehaviour {
                 isDragStart = false;                
                 prevPostion = currPosition;
             }
-            
-
         } 
-        
-    //     // else if (isMoveStart==false && isFinishedRotate == true && Tetris.layer == 10 && OVRInput.Get (OVRInput.Button.SecondaryIndexTrigger)) {
-            
-    //     //     if (!isVerticalRotateStart) {
-    //     //         prevVerticalRotation = OVRInput.GetLocalControllerRotation (OVRInput.Controller.RTouch);
-    //     //         isVerticalRotateStart = true;
-    //     //     }
-    //     //     isGrab = true;
-
-    //     //     currVerticalRotation = OVRInput.GetLocalControllerRotation (OVRInput.Controller.RTouch);
-
-    //     //     Vector3 vecPrev = prevVerticalRotation.eulerAngles;
-    //     //     Vector3 vecCurr = currVerticalRotation.eulerAngles;
-    //     //     Vector3 deltaVec = vecPrev - vecCurr;
-
-            
-
-    //     //     //테트리스 회전
-
-    //     //     if (deltaVec.x > 1f && isVerticalRotateStart) // 상단 테트리스 회전
-    //     //     {
-    //     //         isFinishedRotate = false;
-    //     //         iTween.RotateAdd (Tetris, iTween.Hash ("x", 90, "time", 0.15f, "space", Space.World, "easetype", iTween.EaseType.easeOutBounce, "oncomplete", "FinishedRotate", "oncompletetarget", this.gameObject));
-
-    //     //         prevVerticalRotation = currVerticalRotation;
-    //     //         vecPrev = vecCurr;
-    //     //         isVerticalRotateStart = false;
-                
-    //     //     } else if (deltaVec.x < -1f && isVerticalRotateStart) // 상단 테트리스 회전
-    //     //     {
-    //     //         isFinishedRotate = false;
-    //     //         iTween.RotateAdd (Tetris, iTween.Hash ("x", -90, "time", 0.15f, "space", Space.World, "easetype", iTween.EaseType.easeOutBounce, "oncomplete", "FinishedRotate", "oncompletetarget", this.gameObject));
-
-    //     //         prevVerticalRotation = currVerticalRotation;
-    //     //         vecPrev = vecCurr;
-    //     //         isVerticalRotateStart = false;
-    //     //     }
-    //     // } 
         
         else if (Tetris.layer == 11 && OVRInput.Get (OVRInput.Button.SecondaryIndexTrigger) 
                 ) {
@@ -552,45 +429,6 @@ public class PadController : MonoBehaviour {
             
 
         } 
-        
-    //     // else if (isMoveStart==false && isFinishedRotate == true && Tetris.layer == 10 && OVRInput.Get (OVRInput.Button.SecondaryIndexTrigger)) {
-            
-    //     //     if (!isVerticalRotateStart) {
-    //     //         prevVerticalRotation = OVRInput.GetLocalControllerRotation (OVRInput.Controller.RTouch);
-    //     //         isVerticalRotateStart = true;
-    //     //     }
-    //     //     isGrab = true;
-
-    //     //     currVerticalRotation = OVRInput.GetLocalControllerRotation (OVRInput.Controller.RTouch);
-
-    //     //     Vector3 vecPrev = prevVerticalRotation.eulerAngles;
-    //     //     Vector3 vecCurr = currVerticalRotation.eulerAngles;
-    //     //     Vector3 deltaVec = vecPrev - vecCurr;
-
-            
-
-    //     //     //테트리스 회전
-
-    //     //     if (deltaVec.x > 1f && isVerticalRotateStart) // 상단 테트리스 회전
-    //     //     {
-    //     //         isFinishedRotate = false;
-    //     //         iTween.RotateAdd (Tetris, iTween.Hash ("x", 90, "time", 0.15f, "space", Space.World, "easetype", iTween.EaseType.easeOutBounce, "oncomplete", "FinishedRotate", "oncompletetarget", this.gameObject));
-
-    //     //         prevVerticalRotation = currVerticalRotation;
-    //     //         vecPrev = vecCurr;
-    //     //         isVerticalRotateStart = false;
-                
-    //     //     } else if (deltaVec.x < -1f && isVerticalRotateStart) // 상단 테트리스 회전
-    //     //     {
-    //     //         isFinishedRotate = false;
-    //     //         iTween.RotateAdd (Tetris, iTween.Hash ("x", -90, "time", 0.15f, "space", Space.World, "easetype", iTween.EaseType.easeOutBounce, "oncomplete", "FinishedRotate", "oncompletetarget", this.gameObject));
-
-    //     //         prevVerticalRotation = currVerticalRotation;
-    //     //         vecPrev = vecCurr;
-    //     //         isVerticalRotateStart = false;
-    //     //     }
-    //     // } 
-        
         else if (Tetris.layer == 12 && OVRInput.Get (OVRInput.Button.SecondaryIndexTrigger) 
                 ) {
 
@@ -657,26 +495,6 @@ public class PadController : MonoBehaviour {
                 isFinishedRotate = true;
             }
         }
-       
-
-    // if (OVRInput.Get (OVRInput.Button.SecondaryThumbstickUp) && isGrab == true) {
-    //     Debug.Log (hit.collider.gameObject.GetComponent<Transform> ().position);
-    //     hit.collider.gameObject.GetComponent<Transform> ().position += new Vector3 (0, 1, 0);
-    // }
-    // if (OVRInput.Get (OVRInput.Button.SecondaryThumbstickDown) && isGrab == true) {
-    //     hit.collider.gameObject.GetComponent<Transform> ().position -= new Vector3 (0, 1, 0);
-    // }
-    // if (OVRInput.Get (OVRInput.Button.SecondaryThumbstickLeft) && isGrab == true) {
-    //     hit.collider.gameObject.GetComponent<Transform> ().position -= new Vector3 (0, 0, 1);
-    // }
-    // if (OVRInput.Get (OVRInput.Button.SecondaryThumbstickRight) && isGrab == true) {
-    //     hit.collider.gameObject.GetComponent<Transform> ().position += new Vector3 (0, 0, 1);
-    // }
-
-    //Debug.Log(isMoveStart+"isMoveStart");
-    //Debug.Log(isFinishedRotate+"isFinishedRotate");
-    
-
 }
 
 
@@ -699,7 +517,6 @@ void CreateLine () {
 }
 
 void GrabTetris () {
-    //&& Quaternion.Angle(prevHorizontalRotation,currHorizontalRotation)>= 25f 
     if (Physics.Raycast (tr.position, tr.forward, out hit, range)) {
         if (hit.collider.gameObject.layer == 10 && OVRInput.GetDown (OVRInput.Button.SecondaryHandTrigger)) {
             if (OVRInput.Get (OVRInput.Button.PrimaryThumbstickUp)) {
@@ -739,9 +556,7 @@ void FinishedRotate () {
             {
                 if(Tetris.gameObject.tag == matTagNumber[tagNumber])
                 {
-                    //Debug.Log(tagNumber+"tagNumber!!@@!@");
                     return tagNumber;
-                    
                 }
             }
             
@@ -753,13 +568,8 @@ void FinishedRotate () {
     {
         foreach(Transform cube in Tetris.transform)
                 {
-                    //cube.GetComponent<MeshRenderer>().material = null;
                     cube.GetComponent<MeshRenderer>().material = (Material)Resources.Load(GetTetrisMat());
-                    //Debug.Log("빠뀌니?");
-
-                    
                 }
-        //Tetris.GetComponent<MeshRenderer>().material = (Material)Resources.Load(TetrisMat);//typeof(Material)) as Material;
     }
     string GetTetrisMat()
     {
