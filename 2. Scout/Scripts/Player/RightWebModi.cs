@@ -5,6 +5,7 @@ using Valve.VR;
 using RootMotion.FinalIK;
 using RootMotion.Dynamics;
 
+// 우측 로프 컨트롤 수정 
 public class RightWebModi : MonoBehaviour
 {
     public SteamVR_Input_Sources hand = SteamVR_Input_Sources.Any;
@@ -28,11 +29,9 @@ public class RightWebModi : MonoBehaviour
     public GameObject rotateStabilizer;
     public GameObject rightCrosshair;
     public Rigidbody rb;
-	public Vector3 velocity = Vector3.up;
-
-	public PuppetMaster puppetMaster; 
-
-	private bool jumpFlag;
+    public Vector3 velocity = Vector3.up;
+    public PuppetMaster puppetMaster;
+    private bool jumpFlag;
     private bool hanging;
     private Vector3 currAnchorVel;
     private Vector3 prevAnchorVel;
@@ -55,40 +54,26 @@ public class RightWebModi : MonoBehaviour
     private bool collectValue = false;
     public AudioSource player_audio;
     public PlayerSound playerSound;
-
-
-    
-    
     
     void Start()
     {
         wallLayer = 1<<LayerMask.NameToLayer("WALL");
-        waterLayer = 1<<LayerMask.NameToLayer("Water");
-        
+        waterLayer = 1<<LayerMask.NameToLayer("Water");        
     }
 
     void FixedUpdate()
     {
-        
-
         currPlayerVel = playerRig.GetComponent<Rigidbody>().velocity;
         deltaPlayerVel = currPlayerVel - prevPlayerVel;
         prevPlayerVel = currPlayerVel;
-
-        
-
-        //Debug.Log(deltaPlayerVel +"player");
-        //Debug.Log(deltaAnchorVel + "Anchor");
         
         RaycastHit hit;
         if(Physics.Raycast(transform.position, transform.forward, out hit, 1000, wallLayer | waterLayer))
         {
             rightCrosshair.transform.position = hit.point;
             rightCrosshair.transform.rotation = Quaternion.FromToRotation(hit.point, hit.normal);
-            //Debug.Log(hit.collider.gameObject.name);
             
             PlayerPreVel = playerRig.GetComponent<Rigidbody>().velocity;
-            
 
             if(grab.GetStateDown(righthand))
             {
@@ -100,13 +85,6 @@ public class RightWebModi : MonoBehaviour
 
                 if (hit.collider.gameObject.layer == 9 || hit.collider.gameObject.layer == 4)
                 {
-                    // playerRig.GetComponent<Rigidbody>().velocity = PlayerPreVel;//.normalized * 5.0f;
-                    // foreach (Muscle m in puppetMaster.muscles) 
-                    // {
-                    //     m.rigidbody.velocity = PlayerPreVel;//.normalized * 5.0f;
-                    // }
-                    
-                    
                     line.enabled = true;
                     line.SetPosition(0, transform.position);
                     target = hit.point;
@@ -125,23 +103,13 @@ public class RightWebModi : MonoBehaviour
                         swingingAnchor.GetComponent<SpringJoint>().damper = 300.0f;
                         swingingAnchor.GetComponent<SpringJoint>().spring = 500.0f;
                         swingingAnchor.GetComponent<SpringJoint>().autoConfigureConnectedAnchor = true;
-                        //vrik.solver.locomotion.weight = 0;
-                        rotateStabilizer.GetComponent<Rigidbody>().isKinematic = true;
-                        
+                        rotateStabilizer.GetComponent<Rigidbody>().isKinematic = true;                        
                         Debug.Log(PlayerPreVel);
-                        playerAnchor.GetComponent<Rigidbody>().velocity = PlayerPreVel;//.normalized * 5.0f;
-                        // foreach (Muscle m in puppetMaster.muscles) 
-                        // {
-                        //     m.rigidbody.velocity = PlayerPreVel;//.normalized * 5.0f;
-                        // }
-
+                        playerAnchor.GetComponent<Rigidbody>().velocity = PlayerPreVel;
                         currAnchorVel = playerAnchor.GetComponent<Rigidbody>().velocity;
                         deltaAnchorVel = currAnchorVel - prevAnchorVel;
                         prevAnchorVel = currAnchorVel;
-                        //playerAnchor.GetComponent<Rigidbody>().MovePosition(playerRig.transform.position);
                     }
-
-                    
                 }
             }
 
@@ -151,26 +119,21 @@ public class RightWebModi : MonoBehaviour
         if(grab.GetState(righthand) && line.enabled == true)
         {
             line.SetPosition(0, transform.position);
-            line.material.mainTextureOffset = new Vector2(line.material.mainTextureOffset.x + Random.Range(0.01f,-0.5f), 0.0f);
-            //vrik.solver.locomotion.weight = 0;
+            line.material.mainTextureOffset = new Vector2(line.material.mainTextureOffset.x + Random.Range(0.01f,-0.5f), 0.0f);           
 
             AnchorPreVel = playerAnchor.GetComponent<Rigidbody>().velocity;
-
-            
-            
+	    
             if(trigger.GetStateDown(righthand))
             {
                 collectValue = true;
             }
             
             else if(trigger.GetState(righthand))
-            {
-               
+            {               
                 line.SetPosition(0, transform.position);
                 line.material.mainTextureOffset = new Vector2(line.material.mainTextureOffset.x + Random.Range(0.01f,-0.5f), 0.0f);
 
-                //collectValue = true;
-                //Debug.Log(collectValue);
+		// Joint limit 수치 
                 if(collectValue)
                 {
                     float xTemp = swingingAnchor.GetComponent<SpringJoint>().connectedAnchor.x;
@@ -210,15 +173,12 @@ public class RightWebModi : MonoBehaviour
                     } 
 
                     collectValue = false;
-                }
-
-                
+                }                
                 
                 swingingAnchor.GetComponent<SpringJoint>().autoConfigureConnectedAnchor = false;
                 float x = swingingAnchor.GetComponent<SpringJoint>().connectedAnchor.x;
                 float y = swingingAnchor.GetComponent<SpringJoint>().connectedAnchor.y;
                 float z = swingingAnchor.GetComponent<SpringJoint>().connectedAnchor.z;
-
 
                 if(isXPositive)
                 {
@@ -269,10 +229,7 @@ public class RightWebModi : MonoBehaviour
                 y += - (yCutValue * 0.01f);
                 z += - (zCutValue * 0.01f);
                 
-                swingingAnchor.GetComponent<SpringJoint>().connectedAnchor = new Vector3(x,y,z);
-                
-                
-
+                swingingAnchor.GetComponent<SpringJoint>().connectedAnchor = new Vector3(x,y,z);      
             }
             else if(trigger.GetStateUp(righthand))
             {
@@ -282,18 +239,9 @@ public class RightWebModi : MonoBehaviour
                 {
                     rotateStabilizer.GetComponent<FixedJoint>().connectedBody = playerRig.GetComponent<Rigidbody>();
                 }
-                //playerAnchor.GetComponent<Rigidbody>().MovePosition(playerRig.transform.position);
                 swingingAnchor.GetComponent<SpringJoint>().connectedBody = playerAnchor.GetComponent<Rigidbody>();
-                
-                // playerRig.GetComponent<Rigidbody>().velocity = deltaPlayerVel.normalized * 10.0f;
-                // foreach (Muscle m in puppetMaster.muscles) 
-                // {
-                //     m.rigidbody.velocity = deltaPlayerVel.normalized * 10.0f;
-                // }
                 playerAnchor.transform.position = playerRig.transform.position;
                 playerAnchor.transform.rotation = playerRig.transform.rotation;
-                
-
             }
         }
         else if(grab.GetStateUp(righthand))
@@ -307,7 +255,6 @@ public class RightWebModi : MonoBehaviour
             Player.isHanging = false;
             transform.parent.Find("RightHandGun").GetComponent<Gun_Right>().DontShoot = false;
             transform.parent.Find("RightPortalGun").GetComponent<PortalGun_Right>().DontShoot = false;
-            //playerAnchor.GetComponent<Rigidbody>().MovePosition(playerRig.transform.position);
             playerAnchor.transform.position = playerRig.transform.position;
             playerAnchor.transform.rotation = playerRig.transform.rotation;
             
@@ -320,26 +267,5 @@ public class RightWebModi : MonoBehaviour
             }
         }
     }
-    // void FixedUpdate() 
-    // {
-    //     //AddForce to PlayerRig and muscles
-	// 	if (jumpFlag) 
-    //     {
-			
-    //         playerRig.GetComponent<Rigidbody>().AddForce((target - transform.position).normalized * 15f, ForceMode.Force );
-    //         playerRig.GetComponent<Rigidbody>().AddForce(transform.up * 2);
-
-	// 		//set velocities for all the muscles
-	// 		foreach (Muscle m in puppetMaster.muscles) 
-    //         {
-	// 			m.rigidbody.AddForce((target - transform.position).normalized * 15f, ForceMode.Force);
-    //             m.rigidbody.AddForce(transform.up * 2);
-
-			    
-	// 	    }
-    //         jumpFlag = false;
-	//     }
-
-    // }
 
 }
