@@ -17,17 +17,12 @@ public class Anim_Right : MonoBehaviour
     public SteamVR_Action_Boolean menu = SteamVR_Actions.default_Menu;
     public SteamVR_Action_Vibration haptic = SteamVR_Actions.default_Haptic;
 
-        public Animator anim;
+    public Animator anim;
     public GameObject leftHand;
     public GameObject rightHand;
-    
-
-
-
 
     void Start()
-    {
-        
+    {        
         anim = GetComponent<Animator>();
         leftHand = GetComponent<GameObject>();
         rightHand = GetComponent<GameObject>();
@@ -35,14 +30,8 @@ public class Anim_Right : MonoBehaviour
 
     private void Update()
     {
-
-        //GetStateDown: Once when Pressed, GetState: While Presing, GetStateUp: Once when Released
-
-
-
         if (trigger.GetStateDown(righthand))
         {
-            //Debug.Log("Trigger" + righthand);
             anim.SetTrigger("Shoot");
         }
 
