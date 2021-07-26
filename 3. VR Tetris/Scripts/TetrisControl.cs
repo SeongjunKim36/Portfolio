@@ -2,40 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// 테트리스 움직임 제어
 public class TetrisControl : MonoBehaviour
 {
 
 
     float fall = 0;
-    public bool touchFloor = false;
-    
+    public bool touchFloor = false;    
     private float fallingTime = 1.0f;
     
 
-    void Start() 
-    {
-        
-    
-    }
     void Update() 
     {
-        MoveTetris();
-        
+        MoveTetris();        
     }
-
-    private void OnCollisionEnter(Collision other) {
-        
-        //gameObject.GetComponent<Rigidbody>().isKinematic = true;
-        //gameObject.GetComponent<BoxCollider>().isTrigger = false;
-    }
-
-    
 
     void MoveTetris()
     {
         if(PadController.TopTetrisMoved[0])
         {
-            //transform.position += new Vector3(1,0,0);
             if(CheckIsValidPositon())
             {
                 GameManager.UpdateGrid(this);
@@ -49,7 +34,6 @@ public class TetrisControl : MonoBehaviour
         }
         else if(PadController.TopTetrisMoved[1])
         {
-            //transform.position -= new Vector3(1,0,0);
             if(CheckIsValidPositon())
             {
                 GameManager.UpdateGrid(this);
@@ -64,7 +48,6 @@ public class TetrisControl : MonoBehaviour
         }
         else if(PadController.TopTetrisMoved[2])
         {
-            //transform.position += new Vector3(0,0,1);
             if(CheckIsValidPositon())
             {
                 GameManager.UpdateGrid(this);
@@ -78,7 +61,6 @@ public class TetrisControl : MonoBehaviour
         }
         else if(PadController.TopTetrisMoved[3])
         {
-            //transform.position -= new Vector3(0,0,1);
             if(CheckIsValidPositon())
             {
                 GameManager.UpdateGrid(this);
