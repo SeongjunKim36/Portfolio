@@ -10,20 +10,12 @@ public class LeftTetrisControl : MonoBehaviour
     
 
     float fall = 0;
-    public bool touchFloor = false;
-    
+    public bool touchFloor = false;    
     private float fallingTime = 1.0f;
-    //Transform cube;
-
-    void Start() 
-    {
-        
     
-    }
     void Update() 
     {
-        TestInput();
-        
+        TestInput();        
     }
 
     private void OnCollisionEnter(Collision other) {
@@ -31,8 +23,6 @@ public class LeftTetrisControl : MonoBehaviour
         gameObject.GetComponent<Rigidbody>().isKinematic = true;
         gameObject.GetComponent<BoxCollider>().isTrigger = false;
     }
-
-    
 
     void TestInput()
     {
@@ -100,8 +90,6 @@ public class LeftTetrisControl : MonoBehaviour
             {
                 transform.position += new Vector3(-1,0,0);
                 GameManager.DeleteRaw();
-                //enabled = false;
-                
             }
         }
     }
@@ -113,14 +101,11 @@ public class LeftTetrisControl : MonoBehaviour
             Vector3 pos = GameManager.Round(cube.position);   
             if(GameManager.CheckIsInsideLeftGrid(pos)==false)
             {
-                Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-                
                 return false;
             }
             if(GameManager.GetTransformAtGridPosition(pos) != null 
             && GameManager.GetTransformAtGridPosition(pos).parent != transform)
             {
-                Debug.Log("@@@@@@@@@@@@@@@@@@");
                 return false;
             }       
         }
