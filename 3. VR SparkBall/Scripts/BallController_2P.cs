@@ -79,15 +79,9 @@ public class BallController_2P : Photon.PunBehaviour
             Transform wall_Tr = coll.gameObject.transform;
 
             lastVelocity = Vector3.Reflect(lastVelocity.normalized, cp.normal);
-            //photonView.RPC("Rpc_Wallhit", PhotonTargets.All, lastVelocity, wall_Tr.position, wall_Tr.rotation);
-
-
             ball_rigi.velocity = lastVelocity * 20.0f;
-
-
         }
-
-
+        
         // 스트라이크존 타격시 (점수추가/슈퍼핫획득/공위치리셋)
         if (coll.collider.CompareTag("STRIKE2P"))
         {
@@ -114,16 +108,10 @@ public class BallController_2P : Photon.PunBehaviour
     {
         if (other.transform.CompareTag("KNUCKLE"))
         {
-
-
             Transform hitTr = other.gameObject.transform;
 
             Vector3 hitVel = other.gameObject.GetComponent<HitBall>().vel;
             photonView.RPC("Rpc_Hit", PhotonTargets.All, hitVel, hitTr.position, hitTr.rotation);
-
-            Debug.Log("gg");
-
-
         }
     }
 
@@ -136,14 +124,6 @@ public class BallController_2P : Photon.PunBehaviour
         ball_rigi.velocity = _hitVel;
     }
 
-    //[PunRPC]
-    //void Rpc_Wallhit(Vector3 _hitVel)
-    //{
-
-    //    ball_rigi.velocity = _hitVel * 20.0f;
-    //}
-
-
     void resetBall()
     {
 
@@ -152,10 +132,8 @@ public class BallController_2P : Photon.PunBehaviour
         ball_tr.position = new Vector3(3.5f, 9f, 39f);
         ball_rigi.velocity = lastVelocity * 0.0f;
 
-      
         Debug.Log("2P RESET BALL!!!!");
         activateBall();
-        //Invoke("activateBall", 1.0f);
         ballDissolve_2P.Start_Value = 100;
 
     }
