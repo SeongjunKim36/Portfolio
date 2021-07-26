@@ -43,6 +43,9 @@
 - 개발 기간: 4주 (2019/10/23 ~ 2019/11/26)
 - 관련 링크
  1. 프로젝트 플레이 영상 링크 : https://youtu.be/sD7sJPI82vE
+ 2. 프로젝트 이미지
+ <img width="40%" src="https://user-images.githubusercontent.com/47128767/126945056-ce04afe8-80e9-4455-a676-eef8297cb2f2.gif"/>
+
 
 [프로젝트 설명]
 - 보스전과 플레이어 이동이 강조된 VR 슈팅게임
