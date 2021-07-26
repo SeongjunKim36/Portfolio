@@ -10,16 +10,9 @@ public class RightTetrisControl : MonoBehaviour
     
 
     float fall = 0;
-    public bool touchFloor = false;
-    
+    public bool touchFloor = false;    
     private float fallingTime = 1.0f;
-    //Transform cube;
-
-    void Start() 
-    {
-        
     
-    }
     void Update() 
     {
         TestInput();
@@ -100,7 +93,6 @@ public class RightTetrisControl : MonoBehaviour
             {
                 transform.position += new Vector3(1,0,0);
                 GameManager.DeleteRaw();
-                //enabled = false;
             }
         }
     }
