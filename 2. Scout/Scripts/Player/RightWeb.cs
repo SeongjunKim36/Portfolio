@@ -28,11 +28,9 @@ public class RightWeb : MonoBehaviour
     public GameObject rotateStabilizer;
     public GameObject rightCrosshair;
     public Rigidbody rb;
-	public Vector3 velocity = Vector3.up;
-
-	public PuppetMaster puppetMaster; 
-
-	private bool jumpFlag;
+    public Vector3 velocity = Vector3.up;
+    public PuppetMaster puppetMaster; 
+    private bool jumpFlag;
     private bool hanging;
     private Vector3 currAnchorVel;
     private Vector3 prevAnchorVel;
@@ -49,31 +47,24 @@ public class RightWeb : MonoBehaviour
 
     private AudioSource[] player_audio;
     public PlayerSound playerSound;
-
-    
-
-
-    
-    
     
     void Start()
     {
         wallLayer = 1<<LayerMask.NameToLayer("WALL");
         waterLayer = 1<<LayerMask.NameToLayer("Water");
-        player_audio = gameObject.GetComponents<AudioSource>();
-        
+        player_audio = gameObject.GetComponents<AudioSource>();        
     }
 
     void Update()
     {
-        
-
+    	// Delta Velocity 할당
         currPlayerVel = playerRig.GetComponent<Rigidbody>().velocity;
         deltaPlayerVel = currPlayerVel - prevPlayerVel;
         prevPlayerVel = currPlayerVel;
 
-        
         RaycastHit hit;
+	
+	
         if(Physics.Raycast(transform.position, transform.forward, out hit,30, wallLayer | waterLayer))
         {
             
@@ -81,10 +72,11 @@ public class RightWeb : MonoBehaviour
             rightCrosshair.transform.rotation = Quaternion.FromToRotation(hit.point, hit.normal);
             prevPlayerVelocity = playerRig.GetComponent<Rigidbody>().velocity;
             
-            
+            // 우측 로프 발동
             if(grab.GetStateDown(righthand))
             {
                 Player.isHanging = true;
+		// 총과 포탈 건 활성화
                 transform.parent.Find("RightHandGun").GetComponent<Gun_Right>().DontShoot = true;
                 transform.parent.Find("RightPortalGun").GetComponent<PortalGun_Right>().DontShoot = true;
                 
@@ -105,6 +97,7 @@ public class RightWeb : MonoBehaviour
                     playerAnchor.transform.position = playerRig.transform.position;
                     playerAnchor.transform.rotation = playerRig.transform.rotation;
                     
+		    // 로프가 발동 됬을때 Spring Joint, Fixed Joint 
                     if (swingingAnchor.GetComponent<Rigidbody>() != null)
                     {
                         player_audio[0].clip =  playerSound.player_rope;
@@ -136,6 +129,7 @@ public class RightWeb : MonoBehaviour
             
         }
 
+	// 로프를 잡고 있을때 물리 구현
         if(grab.GetState(righthand) && line.enabled == true)
         {
             line.SetPosition(0, transform.position);
@@ -151,20 +145,13 @@ public class RightWeb : MonoBehaviour
                 line.material.mainTextureOffset = new Vector2(line.material.mainTextureOffset.x + Random.Range(0.01f,-0.5f), 0.0f);
                 if(swingingAnchor.GetComponent<SpringJoint>().connectedBody != null)
                 {
-                    swingingAnchor.GetComponent<SpringJoint>().connectedBody = null;
-                    
+                    swingingAnchor.GetComponent<SpringJoint>().connectedBody = null;                    
                 }
                 if(rotateStabilizer.GetComponent<FixedJoint>().connectedBody != null)
                 {
-                    rotateStabilizer.GetComponent<FixedJoint>().connectedBody = null;
-                    
-                   
-                    
+                    rotateStabilizer.GetComponent<FixedJoint>().connectedBody = null;    
                 }
 
-                
-                
-                
                 playerAnchor.GetComponent<Rigidbody>().isKinematic = true;
 
                 if(velocityKeeperOn)
@@ -198,12 +185,9 @@ public class RightWeb : MonoBehaviour
                 playerAnchor.GetComponent<Rigidbody>().velocity = prevPlayerVelocity;
                 
                 velocityKeeperOn = true;
-                
-               
-                
-
             }
         }
+	// 로프 놨을때 물리 구현
         else if(grab.GetStateUp(righthand))
         {
             Destroy(swingingAnchor.GetComponent<SpringJoint>());
@@ -218,6 +202,7 @@ public class RightWeb : MonoBehaviour
             }
             line.enabled = false;
             Player.isHanging = false;
+	    // 총과 포탈 건 활성화
             transform.parent.Find("RightHandGun").GetComponent<Gun_Right>().DontShoot = false;
             transform.parent.Find("RightPortalGun").GetComponent<PortalGun_Right>().DontShoot = false;
             velocityKeeperOn = true;
@@ -225,20 +210,17 @@ public class RightWeb : MonoBehaviour
     }
     void FixedUpdate() 
     {
-        //AddForce to PlayerRig and muscles
-		if (jumpFlag) 
+        // 이동 시 Ragdoll 각 부분에 Addforce
+	if (jumpFlag) 
         {
             vrik.solver.locomotion.maxVelocity = 8.0f;
             playerRig.GetComponent<Rigidbody>().AddForce((target - transform.position).normalized * 15f);//, ForceMode.Force );
-
-			//set velocities for all the muscles
-			foreach (Muscle m in puppetMaster.muscles) 
+			
+	    foreach (Muscle m in puppetMaster.muscles) 
             {
-				m.rigidbody.AddForce((target - transform.position).normalized * 15f);//, ForceMode.Force);
-
-			    
-		    }
-            jumpFlag = false;
+		m.rigidbody.AddForce((target - transform.position).normalized * 15f);//, ForceMode.Force);
+	    }
+                jumpFlag = false;
 	    }
 
     }
