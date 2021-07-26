@@ -32,17 +32,16 @@ public class DrawGrid : MonoBehaviour
      {
          if (!lineMaterial)
          {
-             // Unity has a built-in shader that is useful for drawing
-             // simple colored things.
+             // 유니티 빌트인 쉐이더
              var shader = Shader.Find("Hidden/Internal-Colored");
              lineMaterial = new Material(shader);
              lineMaterial.hideFlags = HideFlags.HideAndDontSave;
-             // Turn on alpha blending
+             // 알파블랜딩 켜기
              lineMaterial.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
              lineMaterial.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
-             // Turn backface culling off
+             // backface culling 끄기
              lineMaterial.SetInt("_Cull", (int)UnityEngine.Rendering.CullMode.Off);
-             // Turn off depth writes
+             // depth writes 끄기
              lineMaterial.SetInt("_ZWrite", 0);
          }
      }
@@ -51,7 +50,7 @@ public class DrawGrid : MonoBehaviour
      void OnPostRender()
      {
          CreateLineMaterial();
-         // set the current material
+         // 메테리얼 셋팅
          lineMaterial.SetPass(0);
  
          GL.Begin(GL.LINES);
@@ -60,17 +59,17 @@ public class DrawGrid : MonoBehaviour
          {
              GL.Color(subColor);
  
-             //Layers
+             // 레이어
              for (float j = 0; j <= gridSizeY; j += smallStep)
              {
-                 //X axis lines
+                 // X 축 라인
                  for (float i = 0; i <= gridSizeZ; i += smallStep)
                  {
                      GL.Vertex3(startX, startY + j , startZ + i);
                      GL.Vertex3(startX + gridSizeX, startY + j , startZ + i);
                  }
  
-                 //Z axis lines
+                 // Z 축 라인
                  for (float i = 0; i <= gridSizeX; i += smallStep)
                  {
                      GL.Vertex3(startX + i, startY + j , startZ);
@@ -78,7 +77,7 @@ public class DrawGrid : MonoBehaviour
                  }
              }
  
-             //Y axis lines
+             // Y 축 라인
              for (float i = 0; i <= gridSizeZ; i += smallStep)
              {
                  for (float k = 0; k <= gridSizeX; k += smallStep)
@@ -93,17 +92,17 @@ public class DrawGrid : MonoBehaviour
          {
              GL.Color(mainColor);
  
-             //Layers
+             // 레이어
              for (float j = 0; j <= gridSizeY; j += largeStep)
              {
-                 //X axis lines
+                 // X 축 라인
                  for (float i = 0; i <= gridSizeZ; i += largeStep)
                  {
                      GL.Vertex3(startX, startY + j, startZ + i);
                      GL.Vertex3(startX + gridSizeX, startY + j , startZ + i);
                  }
  
-                 //Z axis lines
+                 //Z 축 라인
                  for (float i = 0; i <= gridSizeX; i += largeStep)
                  {
                      GL.Vertex3(startX + i, startY + j , startZ);
@@ -111,7 +110,7 @@ public class DrawGrid : MonoBehaviour
                  }
              }
  
-             //Y axis lines
+             //Y 축 라인
              for (float i = 0; i <= gridSizeZ; i += largeStep)
              {
                  for (float k = 0; k <= gridSizeX; k += largeStep)
