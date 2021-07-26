@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// 쉴드 컨트롤 스크립트
 public class Shield : Photon.PunBehaviour
 {
-
-
     private Vector3 curpos;
     private Vector3 oldpos;
     private Vector3 vel;
@@ -16,17 +15,11 @@ public class Shield : Photon.PunBehaviour
     {
         if (coll.collider.CompareTag("BALL"))
         {
-            Debug.Log("사라져라");
             hit_rigi = coll.gameObject.GetComponent<Rigidbody>();
             Transform tr = this.gameObject.transform;
             hit_rigi.velocity = Vector3.forward * 30.0f;
             photonView.RPC("Rpc_Shiled", PhotonTargets.All, hit_rigi.velocity, tr.position, tr.rotation);
 
-            
-            //hit_rigi.velocity = hit_rigi.velocity * 40.0f;
-
-            //r_dir  = Vector3.forward * -10.0f;
-            //hit_rigi.velocity = hit_rigi.velocity + r_dir;
             this.gameObject.SetActive(false);
         }
     }
@@ -42,23 +35,4 @@ public class Shield : Photon.PunBehaviour
         hit_rigi.velocity = _hitVel;
     }
 
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        //GripballMove();
-
-    }
-
-
-
-    //void GripballMove()
-    //{
-    //    curpos = transform.position;
-    //    vel = (curpos - oldpos) / Time.deltaTime;
-
-    //    oldpos = curpos;
-
-    //}
 }
