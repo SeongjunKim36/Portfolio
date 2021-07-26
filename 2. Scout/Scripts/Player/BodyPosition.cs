@@ -11,7 +11,6 @@ public class BodyPosition : MonoBehaviour
     void Start()
     {
         transform.position = new Vector3(transform.position.x, transform.position.y - 0.6f, transform.position.z);
-        
     }
 
     void Update()
@@ -19,11 +18,6 @@ public class BodyPosition : MonoBehaviour
         CurrCamPos = cameraTr.position;
         deltaCamPos = CurrCamPos - PrevCamPos;
         PrevCamPos = CurrCamPos;
-        
         transform.position += deltaCamPos;
-
-        
-
-        
     }
 }
