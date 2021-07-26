@@ -17,8 +17,6 @@ public class KeyTester : MonoBehaviour
     private Vector3 deltaPosition;
     public Rigidbody ball;
 
-    //private TimeManager TM;
-
     
     private bool isSuper = false;
     void Start()
@@ -26,35 +24,10 @@ public class KeyTester : MonoBehaviour
         TM = TimeManager.GetInstance();
     }
 
-    // Update is called once per frame
     void Update()
     {
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
-
-        // if(mouseX != 0 || mouseY !=0 )
-        // {
-            
-        //     targetScale = 0.5f;
-        //     lerpSpeed = 10;
-        // }
-        // else 
-        // {
-        //     if(Input.anyKey)
-        //     {
-        //         targetScale = 1;
-        //         lerpSpeed = 10;
-        //     }
-        //     else
-        //     {
-        //         targetScale = 0;
-        //         lerpSpeed = 4;
-        //     }
-
-        // TM.myTimeScale = Mathf.Lerp(TM.myTimeScale, targetScale, Time.deltaTime * lerpSpeed);
-        // }
-
-        
         
         if(Input.GetKeyDown(KeyCode.Space))
         {
@@ -73,10 +46,6 @@ public class KeyTester : MonoBehaviour
             isSuper = true;
             targetScale = 0.05f;
             lerpSpeed = 0.8f;
-            //Debug.Log("SuperHot on!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-            //TM.myTimeScale = Mathf.Lerp(TM.myTimeScale, targetScale, Time.deltaTime * lerpSpeed);
-            //ball.velocity = ActionTest.normalSpeed;
-            
         }
 
         if(Input.GetKeyDown(KeyCode.C))
@@ -84,41 +53,15 @@ public class KeyTester : MonoBehaviour
             targetScale = 1.0f;
             lerpSpeed = 0.5f;
             
-            
-            //Debug.Log("SuperHot on!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-            //TM.myTimeScale = Mathf.Lerp(TM.myTimeScale, targetScale, Time.deltaTime * lerpSpeed);
-            //SuperHot.enabled = false;
         }
-        // targetScale = 1f;
-        // lerpSpeed = 4;
-        // Debug.Log("SuperHot On@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-        // TM.myTimeScale = Mathf.Lerp(TM.myTimeScale, targetScale, Time.deltaTime * lerpSpeed);
 
 
         if(isSuper == true)
         {
-            
-            // currPostion = tr.position;
-            
-            // deltaPosition = currPostion - prevPosition;
-
-            // prevPosition = currPostion ;
-
-            
-                
-            //Debug.Log(deltaPosition.x +"얼마나와");
             if(mouseX != 0 || mouseY !=0)
             {
-                //SuperHot.enabled = false;
                 targetScale = 1.0f;
                 lerpSpeed = 0.8f;
-                //Debug.Log("SuperHot off!!!!!!!!!!!!!!!!!!!");
-                //Debug.Log(deltaPosition);
-                
-                //isMove = false;
-                //Debug.Log("오나?");
-                //TM.myTimeScale = Mathf.Lerp(TM.myTimeScale, targetScale, Time.deltaTime * lerpSpeed);
-
             }
             
                 else if(Input.GetKeyDown(KeyCode.Delete))
@@ -126,70 +69,17 @@ public class KeyTester : MonoBehaviour
                         targetScale = 1f;
                         lerpSpeed = 30;
                         isSuper = false;
-                        //TM.myTimeScale = Mathf.Lerp(TM.myTimeScale, targetScale, Time.deltaTime * lerpSpeed);
                         SuperHot.enabled = false;
                 }
                 else
                 {
-                    //SuperHot.enabled = true;
                     targetScale = 0.05f;
                     lerpSpeed = 0.5f;
-                    //Debug.Log("SuperHot On@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-                    //TM.myTimeScale = Mathf.Lerp(TM.myTimeScale, targetScale, Time.deltaTime * lerpSpeed);
 
                 }
                 TM.myTimeScale = Mathf.Lerp(TM.myTimeScale, targetScale, Time.deltaTime * lerpSpeed);
-                //Debug.Log("오고있니");
-            
             
         }
-        
-        
-
-        
-
-        
-
-        
-
-
-        
-
-
-        
-
-        // if(mouseX != 0 || mouseY !=0)
-        // {
-        //     SuperHot.enabled = false;
-        //     targetScale = 0.5f;
-        //     lerpSpeed = 10;
-        //     Debug.Log("SuperHot off!!!!!!!!!!!!!!!!!!!");
-
-        //     TM.myTimeScale = Mathf.Lerp(TM.myTimeScale, targetScale, Time.deltaTime * lerpSpeed);
-
-        // }
-        // else 
-        // {
-        //     if(Input.GetKeyDown(KeyCode.Delete))
-        //     {
-        
-        //         //SuperHot.enabled = false;
-        //         Debug.Log("SuperHot off@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-        
-            
-        //         targetScale = 1;
-        //         lerpSpeed = 10;
-        //     }
-        //     else
-        //     {
-        //         //SuperHot.enabled = true;
-        //         targetScale = 0;
-        //         lerpSpeed = 4;
-        //         Debug.Log("SuperHot On@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-        //     }
-        //     TM.myTimeScale = Mathf.Lerp(TM.myTimeScale, targetScale, Time.deltaTime * lerpSpeed);
-        //     Debug.Log("오고있니");
-        // }
         
         
     }

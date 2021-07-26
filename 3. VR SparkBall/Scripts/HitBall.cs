@@ -8,15 +8,7 @@ public class HitBall : MonoBehaviour
     public Vector3 curpos;
     public Vector3 oldpos;
     public Vector3 vel;
-
-    void Start()
-    {
-        
-    }
-  
-
-
-    // Update is called once per frame
+    
     void Update()
     {
         GripballMove();
@@ -26,8 +18,6 @@ public class HitBall : MonoBehaviour
         }
     }
 
-
-
     public void GripballMove()
     {
         curpos = transform.position;
@@ -36,14 +26,4 @@ public class HitBall : MonoBehaviour
         oldpos = curpos;
 
     }
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.transform.CompareTag("BALL"))
-    //    {
-    //        Debug.Log("gg");
-
-    //        other.gameObject.GetComponent<Rigidbody>().velocity = vel;
-    //    }
-    //}
 }
