@@ -4,6 +4,8 @@ using UnityEngine;
 using Valve.VR;
 using RootMotion.FinalIK;
 using RootMotion.Dynamics;
+
+// 좌측 로프 제어
 public class LeftWeb : MonoBehaviour
 {
     public SteamVR_Input_Sources hand = SteamVR_Input_Sources.Any;
@@ -27,11 +29,9 @@ public class LeftWeb : MonoBehaviour
     public GameObject rotateStabilizer;
     public GameObject leftCrosshair;
     public Rigidbody rb;
-	public Vector3 velocity = Vector3.up;
-
-	public PuppetMaster puppetMaster; 
-
-	private bool jumpFlag;
+    public Vector3 velocity = Vector3.up;
+    public PuppetMaster puppetMaster; 
+    private bool jumpFlag;
     private bool hanging;
     private Vector3 currAnchorVel;
     private Vector3 prevAnchorVel;
@@ -48,31 +48,23 @@ public class LeftWeb : MonoBehaviour
 
     private AudioSource[] player_audio;
     public PlayerSound playerSound;
-
-    
-
-
-    
-    
     
     void Start()
     {
         wallLayer = 1<<LayerMask.NameToLayer("WALL");
         waterLayer = 1<<LayerMask.NameToLayer("Water");
         player_audio = gameObject.GetComponents<AudioSource>();
-        
     }
 
     void Update()
-    {
-        
-
+    {       
         currPlayerVel = playerRig.GetComponent<Rigidbody>().velocity;
         deltaPlayerVel = currPlayerVel - prevPlayerVel;
         prevPlayerVel = currPlayerVel;
-
         
         RaycastHit hit;
+	
+	//벽이나 바닥에 레이캐스트 Hit시 
         if(Physics.Raycast(transform.position, transform.up, out hit,30, wallLayer | waterLayer))
         {
             
@@ -80,16 +72,18 @@ public class LeftWeb : MonoBehaviour
             leftCrosshair.transform.rotation = Quaternion.FromToRotation(hit.point, hit.normal);
             prevPlayerVelocity = playerRig.GetComponent<Rigidbody>().velocity;
             
+	    // 로프 
             if(grab.GetStateDown(lefthand))
             {
                 Player.isHanging = true;
+		
+		// 로프 사용 시 총 사용 블락
                 transform.parent.Find("LeftHandGun").GetComponent<Gun_Left>().DontShoot = true;
                 transform.parent.Find("LeftPortalGun").GetComponent<PortalGun_Left>().DontShoot = true;
 
                 if (hit.collider.gameObject.layer == 9 || hit.collider.gameObject.layer == 4)
-                {
-                    
-                    
+                { 
+		    // 라인랜더러 활성화
                     line.enabled = true;
                     line.SetPosition(0, transform.position);
                     target = hit.point;
@@ -101,6 +95,7 @@ public class LeftWeb : MonoBehaviour
                     playerAnchor.transform.position = playerRig.transform.position;
                     playerAnchor.transform.rotation = playerRig.transform.rotation;
                     
+		    // 자연스럽게 매달린 플레이어를 표현하기 위해 Spring Joint와 Fixed Joint 사용 및 수치 조절
                     if (swingingAnchor.GetComponent<Rigidbody>() != null)
                     {
                         player_audio[0].clip =  playerSound.player_rope;
@@ -112,26 +107,20 @@ public class LeftWeb : MonoBehaviour
                         swingingAnchor.GetComponent<SpringJoint>().spring = 500.0f;
                         rotateStabilizer.GetComponent<Rigidbody>().isKinematic = true;
                         playerAnchor.GetComponent<Rigidbody>().isKinematic = false;
-
-
                         playerAnchor.GetComponent<Rigidbody>().velocity = prevPlayerVelocity;
-
-                        
- 
                     }
                     else if (hit.collider.gameObject.layer != 9 || hit.collider.gameObject.layer != 4)
                     {
                         player_audio[1].clip =  playerSound.player_ropeFail;
                         player_audio[1].Play();
                     }
-                    
-                    
                 }
             }
 
             
         }
 
+	
         if(grab.GetState(lefthand) && line.enabled == true)
         {
             line.SetPosition(0, transform.position);
@@ -139,7 +128,7 @@ public class LeftWeb : MonoBehaviour
 
             prevAnchorVelocity = playerAnchor.GetComponent<Rigidbody>().velocity;
             
-            
+            // 로프를 계속 쥐고 있을때 
             if(trigger.GetState(lefthand))
             {
                 
@@ -147,20 +136,13 @@ public class LeftWeb : MonoBehaviour
                 line.material.mainTextureOffset = new Vector2(line.material.mainTextureOffset.x + Random.Range(0.01f,-0.5f), 0.0f);
                 if(swingingAnchor.GetComponent<SpringJoint>().connectedBody != null)
                 {
-                    swingingAnchor.GetComponent<SpringJoint>().connectedBody = null;
-                    
+                    swingingAnchor.GetComponent<SpringJoint>().connectedBody = null;                    
                 }
                 if(rotateStabilizer.GetComponent<FixedJoint>().connectedBody != null)
                 {
-                    rotateStabilizer.GetComponent<FixedJoint>().connectedBody = null;
-                    
-                   
-                    
+                    rotateStabilizer.GetComponent<FixedJoint>().connectedBody = null;     
                 }
-
-                
-                
-                
+		
                 playerAnchor.GetComponent<Rigidbody>().isKinematic = true;
 
                 if(velocityKeeperOn)
@@ -178,6 +160,7 @@ public class LeftWeb : MonoBehaviour
                 prevPlayerVelocity = playerRig.GetComponent<Rigidbody>().velocity;
 
             }
+	    
             else if(trigger.GetStateUp(lefthand))
             {
                 playerAnchor.transform.position = playerRig.transform.position;
@@ -194,12 +177,9 @@ public class LeftWeb : MonoBehaviour
                 playerAnchor.GetComponent<Rigidbody>().velocity = prevPlayerVelocity;
                 
                 velocityKeeperOn = true;
-                
-               
-                
-
             }
         }
+	//로프 놨을 때 물리 구현 
         else if(grab.GetStateUp(lefthand))
         {
             Destroy(swingingAnchor.GetComponent<SpringJoint>());
@@ -221,21 +201,18 @@ public class LeftWeb : MonoBehaviour
     }
     void FixedUpdate() 
     {
-        //AddForce to PlayerRig and muscles
-		if (jumpFlag) 
+        //Ragdoll 각각 부분에 Add force
+	if (jumpFlag) 
         {
             vrik.solver.locomotion.maxVelocity = 8.0f;
             playerRig.GetComponent<Rigidbody>().AddForce((target - transform.position).normalized * 15f);//, ForceMode.Force );
 
-			//set velocities for all the muscles
-			foreach (Muscle m in puppetMaster.muscles) 
+	    foreach (Muscle m in puppetMaster.muscles) 
             {
-				m.rigidbody.AddForce((target - transform.position).normalized * 15f);//, ForceMode.Force);
-
-			    
-		    }
-            jumpFlag = false;
+		m.rigidbody.AddForce((target - transform.position).normalized * 15f);//, ForceMode.Force);
 	    }
+            jumpFlag = false;
+	}
 
     }
 
