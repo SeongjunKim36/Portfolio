@@ -5,6 +5,7 @@ using Valve.VR;
 using RootMotion.FinalIK;
 using RootMotion.Dynamics;
 
+// Arm Swing Locomotion으로 캐릭터 이동 
 public class ArmSwing : MonoBehaviour
 {
     public SteamVR_Input_Sources hand = SteamVR_Input_Sources.Any;
