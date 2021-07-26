@@ -44,7 +44,8 @@
 - 관련 링크
  1. 프로젝트 플레이 영상 링크 : https://youtu.be/sD7sJPI82vE
  2. 프로젝트 이미지
- <img width="40%" src="https://user-images.githubusercontent.com/47128767/126945056-ce04afe8-80e9-4455-a676-eef8297cb2f2.gif"/>
+ 
+ <img width="45%" src="https://user-images.githubusercontent.com/47128767/126945056-ce04afe8-80e9-4455-a676-eef8297cb2f2.gif"/>  <img width="45%" src="https://user-images.githubusercontent.com/47128767/126945486-29607961-d580-4e1b-9b7c-9a59e407c7b2.gif"/>
 
 
 [프로젝트 설명]
@@ -67,6 +68,10 @@
 - 개발 기간: 2주 (2019/10/7 ~ 2019/10/19)
 - 관련 링크
  1. 프로젝트 플레이 영상 링크 : https://youtu.be/x30mQLFHEVM
+ 2. 프로젝트 이미지
+ 
+ <img width="45%" src="https://user-images.githubusercontent.com/47128767/126945593-dc6b844f-7648-4ac1-b236-9f2839dd8744.gif"/>  <img width="45%" src="https://user-images.githubusercontent.com/47128767/126945654-fe35041b-3cae-4c86-ac15-c9a8eceb46b9.gif"/>
+ 
 
 [프로젝트 설명]
 - 속도감을 높이고 단조로움을 줄이기 위해 2개의 공을 조작
@@ -86,6 +91,10 @@
 - 개발 기간: 2주 (2019/09/09 ~ 2019/09/25)
 - 관련 링크
  1. 프로젝트 플레이 영상 링크 : https://youtu.be/PfzjLjYv9kA
+ 2. 프로젝트 이미지
+ 
+ <img width="35%" src="https://user-images.githubusercontent.com/47128767/126945720-ed427bc0-2e9b-4c20-a2ad-0c9ab4af4ecc.gif"/>  <img width="35%" src="https://user-images.githubusercontent.com/47128767/126945731-e0bfe21b-5bc5-4e05-a7c6-842df6b62741.gif"/>
+
 
 [프로젝트 설명]
 - 2D기반의 테트리스 알고리즘을 3D로 전환
