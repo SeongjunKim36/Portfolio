@@ -10,13 +10,7 @@ public class HandController : MonoBehaviour
 
     public Animator anim;
     public Transform tr;
-    // private int default_hand;
     public SteamVR_Input_Sources handType;
-
-    //public SteamVR_Input_Sources hand = SteamVR_Input_Sources.Any;
-    //public SteamVR_Input_Sources leftHand = SteamVR_Input_Sources.LeftHand;
-    //public SteamVR_Input_Sources rightHand = SteamVR_Input_Sources.RightHand;
-
 
     //액션 - 트리거 버튼(InteractUI)
     public SteamVR_Action_Boolean trigger = SteamVR_Actions.default_InteractUI;
@@ -34,9 +28,6 @@ public class HandController : MonoBehaviour
 
     private SteamVR_Action_Pose pose = SteamVR_Actions.default_Pose; //컨트롤러 정보
 
-    //public GameObject ObjCollider;
-
-
 
     private GameObject collidingObject; //현재 충돌중인 객체
     private GameObject objectInHand;    //플레이어가 잡은 객체
@@ -46,6 +37,7 @@ public class HandController : MonoBehaviour
     public GameObject Shield;
     public GameObject GripBall;
     public Transform ballTr;
+    
     private void Start()
     {
         tr = GetComponent<Transform>();
@@ -149,12 +141,7 @@ public class HandController : MonoBehaviour
             objectInHand.transform.SetParent(tr);
             objectInHand.GetComponent<Rigidbody>().isKinematic = true;
             Shield.SetActive(true);
-
       
-        //objectInHand.transform.position = ballTr.position;
-
-        //var joint = AddFixedJoint();
-        //joint.connectedBody = objectInHand.GetComponent<Rigidbody>();
     }
     //FixedJoint = 객체들을 하나로 묶어 고정 시킴
     //breakForce = 조인트가 제거되기 위해 필요한 힘의 크기
@@ -172,15 +159,11 @@ public class HandController : MonoBehaviour
     //pose.GetAngularVelocity() = 컨트롤러의 각속도
     private void ReleaseObject()
     {
-        Debug.Log("떨어져라");
-
-        //GetComponent<FixedJoint>().connectedBody = null;
         objectInHand.transform.SetParent(null);
         objectInHand.GetComponent<Rigidbody>().isKinematic = false;
 
         objectInHand.GetComponent<Rigidbody>().velocity = pose.GetVelocity(handType) * 15.0f;
         objectInHand.GetComponent<Rigidbody>().angularVelocity = pose.GetAngularVelocity(handType) * 15.0f;
-        //objectInHand = null;
     }
 
 
