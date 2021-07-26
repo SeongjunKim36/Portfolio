@@ -22,7 +22,6 @@ public class BallController_1P : Photon.PunBehaviour
     public Collider col;
     public MeshRenderer mesh;
     public GameObject ball;
-    //public GameObject stikeZone;
 
     public Text scoreText1P;
     public Text scoreText2P;
@@ -38,10 +37,7 @@ public class BallController_1P : Photon.PunBehaviour
 
 
     void Start()
-    {
-        
-
-        
+    {       
         speed = 1.0f;
         ball_rigi = this.gameObject.GetComponent<Rigidbody>();
         ball_tr = gameObject.GetComponent<Transform>();
@@ -60,8 +56,6 @@ public class BallController_1P : Photon.PunBehaviour
     void Update()
     {
         lastVelocity = ball_rigi.velocity;
-        //right_Pose.GripballMove();
-
     }
 
     private void OnCollisionEnter(Collision coll)
@@ -74,23 +68,14 @@ public class BallController_1P : Photon.PunBehaviour
         {
             Check_BdoyHitBall = false;
         }
-
-
-
         if (coll.collider.CompareTag("WALL"))
         {
             ContactPoint cp = coll.contacts[0];
-
-
             Transform wall_Tr = coll.gameObject.transform;
 
             lastVelocity = Vector3.Reflect(lastVelocity.normalized, cp.normal);
-            //photonView.RPC("Rpc_Wallhit", PhotonTargets.All, lastVelocity, wall_Tr.position, wall_Tr.rotation);
-
             
             ball_rigi.velocity = lastVelocity*20.0f;
-            
-
         }
 
 
@@ -146,14 +131,6 @@ public class BallController_1P : Photon.PunBehaviour
         ball_rigi.velocity = _hitVel;
     }
 
-    //[PunRPC]
-    //void Rpc_Wallhit(Vector3 _hitVel)
-    //{
-
-    //    ball_rigi.velocity = _hitVel * 20.0f;
-    //}
-
-
     void resetBall()
     {
 
@@ -166,12 +143,7 @@ public class BallController_1P : Photon.PunBehaviour
 
         Debug.Log("1P RESET BALL!!!!!!!");
         activateBall();
-        //Invoke("activateBall", 1.0f);
         ballDissolve_1P.Start_Value = 100;
-
-
-
-
 
     }
 
@@ -185,9 +157,5 @@ public class BallController_1P : Photon.PunBehaviour
     {
         scoreText1P.text = Score1P.ToString(); 
         scoreText2P.text = Score1P.ToString();
-
     }
-
-
-
 }
