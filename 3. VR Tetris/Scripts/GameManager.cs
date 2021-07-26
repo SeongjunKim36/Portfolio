@@ -7,14 +7,16 @@ public class GameManager : MonoBehaviour
     public static int gridX = 20;
     public static int gridY = 20;
     public static int gridZ = 20;
-    // public static int fullGridX = 20;
-    // public static int fullGridY = 20;
-    // public static int fullGridZ = 20;
+    
     public static Transform[, ,] grid = new Transform[gridX,gridY,gridZ];
 
+    
     void Start() {
+        //테트리스 블록 스폰
         SpawnNextTetris();
     }
+    
+    // 해당 축 Row가 가득 찼는지 반환
     public static bool IsFullRow(int y)
     {
         for(int x = 8; x < 12; ++x)
@@ -30,6 +32,7 @@ public class GameManager : MonoBehaviour
         return true;
     }
 
+    // 해당 축 큐브 Destroy
     public static void DeleteCube(int y)
     {
         for(int x = 8; x < 12; ++x)
@@ -42,6 +45,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // 해당 축 아래쪽으로 이동
     public static void MoveRawDown(int y)
     {
         for(int x = 8; x < 12; ++x)
@@ -59,6 +63,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // 해당 축 모든 큐브 아래쪽으로 이동
     public static void MoveAllRowsDown(int y)
     {
         for(int i = y; i < gridY; i++)
@@ -81,6 +86,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // 떨어진 큐브가 그리드 안에 들어왔는지 확인
     
     public static bool CheckIsInsideGrid(Vector3 pos)
     {
@@ -115,6 +121,7 @@ public class GameManager : MonoBehaviour
         
     }
 
+    // 랜덤 큐브 
     string GetRandomTetris()
     {
         int randomTetris = Random.Range(1,9);
@@ -176,12 +183,9 @@ public class GameManager : MonoBehaviour
         foreach(Transform cube in tetris.transform)
         {
             Vector3 pos = Round(cube.position);
-            //Debug.Log(pos + "POSSS");
-            //Debug.Log(cube+"CUBEE");
             if(pos.y < gridY)
             {
                 grid[(int)pos.x, (int)pos.y, (int)pos.z] = cube;
-                //Debug.Log(grid[(int)pos.x, (int)pos.y, (int)pos.z]);
             }
         }
 
@@ -210,12 +214,9 @@ public class GameManager : MonoBehaviour
         foreach(Transform cube in tetris.transform)
         {
             Vector3 pos = Round(cube.position);
-            //Debug.Log(pos + "POSSS");
-            //Debug.Log(cube+"CUBEE");
             if(pos.y < gridY)
             {
                 grid[(int)pos.x, (int)pos.y, (int)pos.z] = cube;
-                //Debug.Log(grid[(int)pos.x, (int)pos.y, (int)pos.z]);
             }
         }
 
@@ -244,12 +245,9 @@ public class GameManager : MonoBehaviour
         foreach(Transform cube in tetris.transform)
         {
             Vector3 pos = Round(cube.position);
-            //Debug.Log(pos + "POSSS");
-            //Debug.Log(cube+"CUBEE");
             if(pos.y < gridY)
             {
                 grid[(int)pos.x, (int)pos.y, (int)pos.z] = cube;
-                //Debug.Log(grid[(int)pos.x, (int)pos.y, (int)pos.z]);
             }
         }
 
@@ -260,7 +258,6 @@ public class GameManager : MonoBehaviour
     {
         if(pos.y > gridY -1)
         {
-            //Debug.Log("###############");
             return null;
         }
         
