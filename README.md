@@ -12,7 +12,6 @@
 
 - 이메일 : [astrsy36@gmail.com](astrsy36@gmail.com)
 - **Github** : [SeongjunKim36](https://github.com/SeongjunKim36)
-- **블로그** :
 
 ## 수행 프로젝트
 
@@ -57,7 +56,26 @@
 - 튜토리얼 구현
 - UI 구현
 
-### 3. 'VR TETRIS' VR 퍼즐 게임
+
+### 3. 'VR Spark Ball' VR 멀티 플레이 유사 테니스 게임
+[프로젝트 개요]
+- 설명: 2개의 공을 주고 받는 VR 유사 테니스 게임
+- 개발 인원:총 3명 (개발:2명, 기획:1명)
+- 개발 환경: Unity2019.2.6f / VIVE pro / GitHub / Trello 
+- 개발 기간: 2주 (2019/10/7 ~ 2019/10/19)
+- 관련 링크
+ 1. 프로젝트 플레이 영상 링크 : https://youtu.be/x30mQLFHEVM
+
+[프로젝트 설명]
+- 속도감을 높이고 단조로움을 줄이기 위해 2개의 공을 조작
+- 유명 VR 게임 'Super Hot'의 시간을 천천히 하는 기능 구현
+- Photon Engine을 사용한 실시간 멀티플레이
+
+[역할]
+- 각 플레이어의 움직임 실시간 연동
+- RPC call을 이용한 공의 움직임 실시간 연동
+
+### 4. 'VR TETRIS' VR 퍼즐 게임
 [프로젝트 개요]
 - 설명: 2D기반의 테트리스 알고리즘을 3D로 전환한 VR 퍼즐 게임
 - 개발 인원:총 1명 (개발:1명)
