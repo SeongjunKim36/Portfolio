@@ -9,7 +9,7 @@
 
 ## Contacts
 
-- 이메일 : [astrsy36@gmail.com](astrsy36@gmail.com)
+- **이메일** : [astrsy36@gmail.com](astrsy36@gmail.com)
 - **Github** : [SeongjunKim36](https://github.com/SeongjunKim36)
 
 ## 수행 프로젝트
