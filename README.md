@@ -26,7 +26,7 @@
  
 [프로젝트 이미지]
 
-<img width="15%" src="https://github.com/SeongjunKim36/Portfolio/blob/main/Screen_Recording_20220722-063536_artzme_AdobeExpress.gif"/> 
+<img width="15%" src="https://user-images.githubusercontent.com/47128767/182007732-e7dfeeee-0268-430b-a528-b5526ba100c7.gif"/> 
  
 [프로젝트 설명]
 - 예술성을 가진 오브젝트를 지면인식을 이용해 현실에 배치해 감상하는 AR필터기능
