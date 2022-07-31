@@ -48,6 +48,10 @@
  1. 구글 플레이 링크 : https://play.google.com/store/apps/details?id=com.CircusCompany.EBS_ART
  2. 앱 스토어 링크 : https://apps.apple.com/id/app/ebs-%EC%8B%A4%EA%B0%90%ED%98%95-%EC%B4%88%EB%93%B1-%EB%AC%B8%ED%99%94%EC%98%88%EC%88%A0/id1593798850
 
+[프로젝트 이미지]
+
+<img width="30%" src="https://user-images.githubusercontent.com/47128767/182009722-9e152913-c1eb-4d84-83a8-f64edd1d123c.gif"/>
+
 [프로젝트 설명]
 - 음악, 체육, 미술 3가지 과목의 교육 콘텐츠
 - 각 콘텐츠를 AR 기술을 활용하여 학습
