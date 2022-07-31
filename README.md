@@ -24,6 +24,10 @@
  1. 구글 플레이 링크 : https://play.google.com/store/apps/details?id=com.circuscompany.artzme&hl=ko
  2. 앱 스토어 링크 : https://apps.apple.com/us/app/artzme/id1631256403
  
+[프로젝트 이미지]
+
+<img width="15%" src="https://github.com/SeongjunKim36/Portfolio/blob/main/Screen_Recording_20220722-063536_artzme_AdobeExpress.gif"/> 
+ 
 [프로젝트 설명]
 - 예술성을 가진 오브젝트를 지면인식을 이용해 현실에 배치해 감상하는 AR필터기능
 - 예술 콘텐츠(2~5분의 플레이타임)을 마커인식 혹은 지면인식을 통해 감상
