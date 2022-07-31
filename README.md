@@ -26,8 +26,8 @@
  
 [프로젝트 이미지]
 
-<img width="15%" src="https://user-images.githubusercontent.com/47128767/182007732-e7dfeeee-0268-430b-a528-b5526ba100c7.gif"/> 
- 
+<img width="15%" src="https://user-images.githubusercontent.com/47128767/182007732-e7dfeeee-0268-430b-a528-b5526ba100c7.gif"/> <img width="15%" src="https://user-images.githubusercontent.com/47128767/182007768-26a4dff5-948b-43a5-848e-3d631b0a41b6.gif"/> 
+
 [프로젝트 설명]
 - 예술성을 가진 오브젝트를 지면인식을 이용해 현실에 배치해 감상하는 AR필터기능
 - 예술 콘텐츠(2~5분의 플레이타임)을 마커인식 혹은 지면인식을 통해 감상
