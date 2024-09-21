@@ -14,7 +14,7 @@
 
 ## 경력
 
-- ### 맥스트 | 백엔드 개발자, 클라이언트 개발자 (정규직)
+### 맥스트 | 백엔드 개발자, 클라이언트 개발자 (정규직)
 
 2023-01 ~ 재직중
 
@@ -25,7 +25,7 @@
   - 피드 UI 개발
   - 데디케이트 서버를 사용한 유저 멀티 플레이 개발
 
-- ### 서커스 컴퍼니 | 클라이언트 개발자 (정규직)
+### 서커스 컴퍼니 | 클라이언트 개발자 (정규직)
 
 2021-09 ~ 2022-09
 
@@ -40,7 +40,7 @@
 - KERIS '실감형 콘텐츠' 모바일 교육 플랫폼 클라이언트 개발
   - 기존 콘텐츠의 스크립트 파악하여 마커리스 기능 및 UI 추가 개발
  
-- ### 제타섬 | 클라이언트 개발자 (정규직)
+### 제타섬 | 클라이언트 개발자 (정규직)
 
 2020-06 ~ 2021-01
 
@@ -52,65 +52,51 @@
 ## 프로젝트
 
 ### 하티(Heartee) 서버 개발자 - 맥스트
-[프로젝트 개요]
-- 설명: 위치기반 소셜을 활용한 앱테크 어플리케이션
-- 개발 환경: Java Spring / MySql / NCloud
-- 참여 기간: 9개월 (2024/01 ~ 2024/09)
-- 관련 링크
- 1. 구글 플레이 링크 : https://play.google.com/store/search?q=heartee&c=apps&hl=ko
 
-[프로젝트 설명]
-- 3d 맵에서의 인터렉션을 통해 내 주변에 올라온 게시물을 확인하고 리워드 획득
-- 게시물을 '인스타그램'의 스토리 형식을 착안하여 보여주는 방식
-- 걸음 수를 통한 리워드 획득
-- 획득한 리워드로 기프티콘을 구매하여 현물 사용
+설명 : 위치기반 소셜을 활용한 앱테크 어플리케이션
+2024/01 ~ 2024/09
+Java Spring / MySql / NCloud
+구글 플레이 링크 : https://play.google.com/store/search?q=heartee&c=apps&hl=ko
 
-[역할]
+[진행업무]
 - 하티 콘텐츠 API 개발
 - 유저 관리를 위한 Admin API 개발
 - 영상의 워
+[세부작업]
+- 
+
 
 ### 틀로나(TLONA) 클라이언트 개발자 - 맥스트
-[프로젝트 개요]
-- 설명: 현실 기반의 월드에서 소셜활동을 할 수 있는 메타버스
-- 개발 환경: Unity/ Android, IOS / GitHub 
-- 참여 기간: 12개월 (2023/01 ~ 2023/01)
-- 관련 링크
- 1. 구글 플레이 링크 : https://play.google.com/store/search?q=%ED%8B%80%EB%A1%9C%EB%82%98&c=apps&hl=ko
- 2. 앱 스토어 링크 : https://apps.apple.com/kr/app/tlona-%ED%8B%80%EB%A1%9C%EB%82%98/id6475326749
 
-[프로젝트 설명]
-- 현실 기반의 월드 속에서 다른 플레이어들과 인터렉션
-- 방꾸미기 시스템을 사용해서 다른 유저들에게 자신만의 공간을 공유하고 소셜기능을 통한 커뮤니케이션
+설명 : 현실 기반의 월드에서 소셜활동을 할 수 있는 메타버스
+2023/01 ~ 2024/01
+Unity
+구글 플레이 링크 : https://play.google.com/store/search?q=%ED%8B%80%EB%A1%9C%EB%82%98&c=apps&hl=ko
+앱 스토어 링크 : https://apps.apple.com/kr/app/tlona-%ED%8B%80%EB%A1%9C%EB%82%98/id6475326749
 
-[역할]
+[진행업무]
 - 갤러리 기능 개발
 - 피드 UI시스템 개발
-- 데디케이트 서버를 사용한 유저 멀티플레이 최적화 
+- 데디케이트 서버를 사용한 유저 멀티플레이 최적화
+[세부작업]
+-
 
 ### '아츠미(ArtzMe)' 모바일 AR 예술 플랫폼 - 서커스컴퍼니
-[프로젝트 개요]
-- 설명: 예술 작품을 AR기술을 이용해 감상할 수 있는 플랫폼
-- 개발 인원:총 7명 (개발:1명, 기획:1명, 2D:3명 , 3D:2명)
-- 개발 환경: Unity2020.3.14f1 / Android, IOS / GitHub 
-- 개발 기간: 5개월 (2022/03 ~ 2022/07)
-- 관련 링크
- 1. 구글 플레이 링크 : https://play.google.com/store/apps/details?id=com.circuscompany.artzme&hl=ko
- 2. 앱 스토어 링크 : https://apps.apple.com/us/app/artzme/id1631256403
- 
-[프로젝트 이미지]
 
+설명 : 예술 작품을 AR기술을 이용해 감상할 수 있는 플랫폼
+2022/03 ~ 2022/07
+Unity
+구글 플레이 링크 : https://play.google.com/store/apps/details?id=com.circuscompany.artzme&hl=ko
+앱 스토어 링크 : https://apps.apple.com/us/app/artzme/id1631256403
 <img width="15%" src="https://user-images.githubusercontent.com/47128767/182007732-e7dfeeee-0268-430b-a528-b5526ba100c7.gif"/> <img width="15%" src="https://user-images.githubusercontent.com/47128767/182007768-26a4dff5-948b-43a5-848e-3d631b0a41b6.gif"/> 
 
-[프로젝트 설명]
-- 예술성을 가진 오브젝트를 지면인식을 이용해 현실에 배치해 감상하는 AR필터기능
-- 예술 콘텐츠(2~5분의 플레이타임)을 마커인식 혹은 지면인식을 통해 감상
-
-[역할]
+[진행업무]
 - 어플리케이션 메인 개발
 - AR Foundation을 사용한 AR필터 기능 개발
 - Vuforia의 스캔 기능을 사용한 콘텐츠 감상 기능 개발
 - 파이어베이스 Analytics, Remote Config 연동
+[세부작업]
+-
 
 ### EBS '초등문화예술' 모바일 교육 앱 [서커스컴퍼니]
 [프로젝트 개요]
