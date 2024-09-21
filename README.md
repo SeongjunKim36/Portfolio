@@ -14,10 +14,10 @@
 
 ## 수행 프로젝트
 
-### 하티(Heartee) 서버 개발자 - 맥스트
+### 하티(Heartee) 서버 개발자 - 맥스트
 [프로젝트 개요]
-- 설명: 위치기반 소셜을 활용한 앱테크 어플리케이션
-- 개발 환경: Java Spring / MySql / NCloud
+- 설명: 위치기반 소셜을 활용한 앱테크 어플리케이션
+- 개발 환경: Java Spring / MySql / NCloud
 - 참여 기간: 9개월 (2024/01 ~ 2024/09)
 - 관련 링크
  1. 구글 플레이 링크 : https://play.google.com/store/search?q=heartee&c=apps&hl=ko
@@ -30,7 +30,7 @@
 [역할]
 - 클라이언트 요구에 따른 API 개발
 
-### 틀로나(TLONA) 클라이언트 개발자 - 맥스트
+### 틀로나(TLONA) 클라이언트 개발자 - 맥스트
 [프로젝트 개요]
 - 설명: 현실 기반의 월드에서 소셜활동을 할 수 있는 메타버스
 - 개발 환경: Unity/ Android, IOS / GitHub 
