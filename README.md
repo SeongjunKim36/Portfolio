@@ -36,9 +36,9 @@
 - EBS '초등문화예술' 모바일 교육 앱 클라이언트 개발
   - 어드레서블 시스템을 이용해 15종 콘텐츠 결합
   - 콘텐츠 4종 개발
-  - Vuforia SDK와 AR Foundation SDK를 사용해 지면인식과 마커인식 사용
+  - Vuforia SDK와 AR Foundation SDK를 사용해 지면인식과 마커인식 적용
 - KERIS '실감형 콘텐츠' 모바일 교육 플랫폼 클라이언트 개발
-  - 기존 콘텐츠의 스크립트 파악하여 마커리스 기능 및 UI 추가 개발
+  - 기존 콘텐츠에 마커리스 기능 및 UI 추가 개발
  
 ### 제타섬 | 클라이언트 개발자 (정규직)
 
@@ -61,10 +61,12 @@
 [진행업무]
 - 하티 콘텐츠 API 개발
 - 유저 관리를 위한 Admin API 개발
-- 영상의 워
+- 영상을 인코딩하여 메모리 최적화
   
 [세부작업]
-- 세부작업
+- 유저들이 작성한 게시글 리스트를 유저의 거리별 CRUD 기능을 제작
+- 외부 기프티콘 API를 사용하여 앱 내에서 기프티콘을 구매할 수 있도록 개발
+- 소상 공인 DB를 맵핑하여 가게 정보를 해당 DB내에서 키워드로 검색할 수 있도록 API 개발 
 
 ### '틀로나(TLONA)' 클라이언트 개발자 - 맥스트
 
@@ -75,12 +77,14 @@
 - 앱 스토어 링크 : https://apps.apple.com/kr/app/tlona-%ED%8B%80%EB%A1%9C%EB%82%98/id6475326749
 
 [진행업무]
-- 갤러리 기능 개발
+- 전시관 기능 개발
 - 피드 UI시스템 개발
 - 데디케이트 서버를 사용한 유저 멀티플레이 최적화
   
 [세부작업]
--
+- 기기 로컬에 있는 이미지를 받아 RawImage를 사용하여 실제 전시관 같은 환경을 구성하였습니다.
+- UGUI를 사용해 인스타그램 피드와 같이 게시글, 댓글, 대댓글 기능을 개발하였습니다.
+- 클라이언트와 서버간의 프로토콜을 분석하여 유저간의 멀티플레이 경험, 서버와 클라이언트간의 간극으로 발생하는 버그를 해결하였습니다.
 
 ### '아츠미(ArtzMe)' 모바일 AR 예술 플랫폼 - 서커스컴퍼니
 
@@ -95,43 +99,35 @@
 - 어플리케이션 메인 개발
 - AR Foundation을 사용한 AR필터 기능 개발
 - Vuforia의 스캔 기능을 사용한 콘텐츠 감상 기능 개발
-- 파이어베이스 Analytics, Remote Config 연동
-  
-[세부작업]
--
+- 파이어베이스 Analytics, Remote Config 연동<br/><br/>
+
 
 ### 'EBS 초등문화예술' 모바일 교육 앱 - 서커스컴퍼니
 
 - 설명 : AR기술을 사용한 실감형 문화예술과목 교육 콘텐츠 개발
 - 2021/11 ~ 2022/02
 - Unity
-구글 플레이 링크 : https://play.google.com/store/apps/details?id=com.CircusCompany.EBS_ART
-앱 스토어 링크 : https://apps.apple.com/id/app/ebs-%EC%8B%A4%EA%B0%90%ED%98%95-%EC%B4%88%EB%93%B1-%EB%AC%B8%ED%99%94%EC%98%88%EC%88%A0/id1593798850<br/>
+- 구글 플레이 링크 : https://play.google.com/store/apps/details?id=com.CircusCompany.EBS_ART
+- 앱 스토어 링크 : https://apps.apple.com/id/app/ebs-%EC%8B%A4%EA%B0%90%ED%98%95-%EC%B4%88%EB%93%B1-%EB%AC%B8%ED%99%94%EC%98%88%EC%88%A0/id1593798850<br/>
 <img width="30%" src="https://user-images.githubusercontent.com/47128767/182009722-9e152913-c1eb-4d84-83a8-f64edd1d123c.gif"/>
 
 [진행업무]
 - 어플리케이션 메인 개발
 - 어드레서블 시스템을 이용해 15종 콘텐츠 결합
 - 콘텐츠 4종 개발
-- Vuforia SDK와 AR Foundation SDK를 사용해 지면인식과 마커인식 사용
-  
-[세부작업]
--
+- Vuforia SDK와 AR Foundation SDK를 사용해 지면인식과 마커인식 사용<br/><br/>
 
 ### KERIS '실감형 콘텐츠' 수정보완(2021~2022) 모바일 교육 플랫폼 - 서커스컴퍼니
 
 - 설명 : 기개발 콘텐츠(97종)의 마커리스 및 마커가이드 기능 추가
 - 2021/09, 2022/07
 - Unity
-구글 플레이 링크 : https://play.google.com/store/search?q=%EC%8B%A4%EA%B0%90%ED%98%95%20%EC%BD%98%ED%85%90%EC%B8%A0&c=apps
-앱 스토어 링크 : https://apps.apple.com/kr/app/%EC%8B%A4%EA%B0%90%ED%98%95%EC%BD%98%ED%85%90%EC%B8%A0/id1497268569
+- 구글 플레이 링크 : https://play.google.com/store/search?q=%EC%8B%A4%EA%B0%90%ED%98%95%20%EC%BD%98%ED%85%90%EC%B8%A0&c=apps
+- 앱 스토어 링크 : https://apps.apple.com/kr/app/%EC%8B%A4%EA%B0%90%ED%98%95%EC%BD%98%ED%85%90%EC%B8%A0/id1497268569
 
 [진행업무]
 - 기존 콘텐츠의 스크립트 파악하여 마커리스 기능 추가
-- 마커 가이드 UI 추가
-  
-[세부작업]
--
+- 마커 가이드 UI 추가<br/><br/>
 
 ### 'HanbBeGo' 모바일 360VR 관광 플랫폼 - 제타섬
 
@@ -144,7 +140,7 @@
 - Inverse Sphere, Cubemap을이용한360VR 영상, 이미지셋업
 - 퀘스트 시스템개발
 - 파이어 베이스 Cloud Message 연동
-- REST API를 이용한 클라이언트-서버 연동
+- REST API를 이용한 클라이언트-서버 연동<br/><br/>
 
 ### 'SCOUT' VR 슈팅 액션 게임 - 개인프로젝트
 
@@ -157,7 +153,7 @@
 [진행업무]
 - 플레이어 물리, 이동, 로프 시스템 구현
 - 튜토리얼 구현
-- UI 구현
+- UI 구현<br/><br/>
 
 ### 'VR Spark Ball' VR 멀티 플레이 유사 테니스 게임 - 개인프로젝트
 
@@ -169,7 +165,7 @@
 
 [진행업무]
 - 각 플레이어의 움직임 실시간 연동
-- RPC call을 이용한 공의 움직임 실시간 연동
+- RPC call을 이용한 공의 움직임 실시간 연동<br/><br/>
 
 ### 'VR TETRIS' VR 퍼즐 게임 - 개인프로젝트
 
