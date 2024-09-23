@@ -3,14 +3,22 @@
 ## Introduction
 
 - 이름 : 김성준
-- 나이 : 34세(1990년생)
 - 최종 학력 : 순천향대학교 전자정보공학과 학사 졸업
 - 맥스트 재직중
-
-## Contacts
-
 - **이메일** : [astrsy36@gmail.com](astrsy36@gmail.com)
 - **Github** : [SeongjunKim36](https://github.com/SeongjunKim36)
+
+## 핵심 역량
+
+- 클라이언트 개발 경험을 통한 원활한 소통과 요구사항에 대한 핵심 파악 능력
+- 비즈니스 로직을 추상화해 변경되는 요구사항에 유연하게 대응
+- 기획 직군과 도메인 언어로 소통해 요구사항 분석과 우선순위 및 영향도에 따른 일정조율과 수행
+
+## 기술
+
+- 백엔드: Java Spring, MySQL, MongoDB
+- 클라이언트: Unity, HTML, CSS, JS
+- 클라우드: AWS, NCloud
 
 ## 경력
 
