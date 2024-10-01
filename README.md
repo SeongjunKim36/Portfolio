@@ -2,11 +2,27 @@
 
 ## Introduction
 
-- 이름 : 김성준
+<img width="30%" align="left" src="https://github.com/user-attachments/assets/4f09c87d-7813-474a-a9f1-34b49cb0999d"/>
+
+
+
+안녕하세요. 개발자 김성준입니다.
+저는 아래와 같은 가치관을 추구하며 일하고 있습니다.
+
+고객 경험을 중요하게 생각합니다. 고객 경험을 위해 시기별 최선의 방법을 도입합니다.<br/>
+팀 목표를 달성하기 위해 필요한 과제를 수행합니다. 도구와 언어를 한정짓지 않습니다.<br/>
+여러 도구를 학습해 도전적인 문제를 해결하며, 다양한 경험이 새로운 방법을 만든다고 생각하고 있습니다.     
+
+<br/><br/><br/><br/>
+<div align="left">
+  
+- 이름 : 김성준                                                        
 - 최종 학력 : 순천향대학교 전자정보공학과 학사 졸업
-- 맥스트 재직중
 - **이메일** : [astrsy36@gmail.com](astrsy36@gmail.com)
 - **Github** : [SeongjunKim36](https://github.com/SeongjunKim36)
+  
+</div>
+<br/>
 
 ## 핵심 역량
 
@@ -16,18 +32,21 @@
 
 ## 기술
 
-- 백엔드: Java Spring, MySQL, MongoDB
-- 클라이언트: Unity, HTML, CSS, JS
-- 클라우드: AWS, NCloud
+- Backend : <img src="https://img.shields.io/badge/Spring-6DB33F?style=flat-square&logo=Spring&logoColor=white"/> <img src="https://img.shields.io/badge/Springboot-6DB33F?style=flat-square&logo=Springboot&logoColor=white"/> <img src="https://img.shields.io/badge/mysql-4479A1?style=flat-square&logo=mysql&logoColor=white"/> <img src="https://img.shields.io/badge/mongodb-47A248?style=flat-square&logo=mongodb&logoColor=white"/>
+- Client : <img src="https://img.shields.io/badge/unity-FFFFFF?style=flat-square&logo=unity&logoColor=black"/> <img src="https://img.shields.io/badge/html5-E34F26?style=flat-square&logo=html5&logoColor=white"/> <img src="https://img.shields.io/badge/css3-1572B6?style=flat-square&logo=css3&logoColor=white"/> <img src="https://img.shields.io/badge/javascript-F7DF1E?style=flat-square&logo=javascript&logoColor=white"/>
+- Cloud : <img src="https://img.shields.io/badge/amazonwebservices-232F3E?style=flat-square&logo=amazonwebservices&logoColor=white"/> 
 
 ## 경력
 
 ### 맥스트 | 백엔드 개발자, 클라이언트 개발자 (정규직)
 
-2023-01 ~ 재직중
+2023-01 ~ 2024-09
 
 - 위치기반 앱테크 어플리케이션 '하티' 백엔드 개발
-  - 게시글, 만보기, 기프티쇼, 검색관련 API 개발
+  - 게시글 API 개발
+  - 만보기 API 개발
+  - 기프티쇼 API 연동
+  - 장소 검색관련 API 개발
 - 메타버스 서비스 '틀로나' 클라이언트 개발
   - 갤러리 기능 개발
   - 피드 UI 개발
@@ -72,7 +91,7 @@
 - 영상을 인코딩하여 메모리 최적화
   
 [세부작업]
-- 유저들이 작성한 게시글 리스트를 유저의 거리별 CRUD 기능을 제작
+- 유저들이 작성한 게시글의 CRUD 기능을 제작
 - 외부 기프티콘 API를 사용하여 앱 내에서 기프티콘을 구매할 수 있도록 개발
 - 소상 공인 DB를 맵핑하여 가게 정보를 해당 DB내에서 키워드로 검색할 수 있도록 API 개발 
 
